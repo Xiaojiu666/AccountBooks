@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.gx.accountbooks.base.BaseFragment
 import com.gx.module_task.R
@@ -15,11 +16,11 @@ import com.tencent.mars.xlog.Log
 
 class TaskDetailFragment : BaseFragment() {
 
-    private lateinit var viewModel: TaskDetailViewModel
+    private  val viewModel: TaskDetailViewModel by viewModels()
     var inflate: FragmentTaskDetailBinding? = null
 
     override fun initView(view: View) {
-        viewModel = ViewModelProvider(this).get(TaskDetailViewModel::class.java)
+//        viewModel = ViewModelProvider(this).get(TaskDetailViewModel::class.java)
         LogUtil.e(TAG, "TaskDetail ")
         viewModel.taskDetail.observe(this, Observer {
             LogUtil.e(TAG, "TaskDetail ${it.toString()}")

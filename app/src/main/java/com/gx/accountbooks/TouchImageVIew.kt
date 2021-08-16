@@ -1,17 +1,17 @@
 package com.gx.accountbooks
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Context
+import android.graphics.Matrix
 import android.util.AttributeSet
 import android.view.GestureDetector
-import android.view.GestureDetector.OnGestureListener
 import android.view.MotionEvent
-import android.view.animation.BounceInterpolator
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.view.ViewCompat.setPivotX
-import androidx.core.view.ViewCompat.setPivotY
 import com.gx.utils.log.LogUtil
+
 
 class TouchImageVIew : AppCompatImageView {
     constructor(context: Context?) : super(context!!) {
@@ -79,21 +79,74 @@ class TouchImageVIew : AppCompatImageView {
             val x = e!!.x
             val y = e.y
             LogUtil.e(TAG, "onDoubleTap x $x y $y e.action $e.action")
+            val matrix = Matrix()
+            val postScale = getMatrix().postScale(2f, 2f)
             if (currentScaleStatus == 0) {
-                pivotX = x
-                pivotY = y
-                animate()
-                    .scaleX(2.0f)
-                    .scaleY(2.0f)
-                    .setDuration(500)
-                    .start()
+                setTransform();
+//                pivotX = x
+//                pivotY = y
+//                scaleX = 2.0f
+//                scaleY = 2.0f
+//                animate()
+//                    .scaleX(2.0f)
+//                    .scaleY(2.0f)
+//                    .setDuration(500)
+//                    .start()
+
+//                属性动画
+                val rotateX = ObjectAnimator.ofFloat(this@TouchImageVIew, "scaleX", 1f, 3f)
+                val rotateY = ObjectAnimator.ofFloat(this@TouchImageVIew, "scaleY", 1f, 3f)
+                val animSet = AnimatorSet()
+                animSet.play(rotateX).with(rotateY)
+                animSet.duration = 500
+                animSet.start()
+
+                val scaleAnimation = ScaleAnimation(
+                    1f,
+                    2f,
+                    1f,
+                    2f,
+                    Animation.RELATIVE_TO_SELF,
+                    0.5f,
+                    Animation.RELATIVE_TO_SELF,
+                    0.5f
+                )
+                scaleAnimation.duration = 500
+                scaleAnimation.fillAfter = true
+                startAnimation(scaleAnimation)
+                LogUtil.e(TAG, "onDoubleTap width $width height $height ")
+
                 currentScaleStatus = 1
             } else {
-                animate()
-                    .scaleX(1.0f)
-                    .scaleY(1.0f)
-                    .setDuration(500)
-                    .start()
+//                scaleX = 1.0f
+//                scaleY = 1.0f
+//                animate()
+//                    .scaleX(1.0f)
+//                    .scaleY(1.0f)
+//                    .setDuration(500)
+//                    .start()
+
+//                val rotateX = ObjectAnimator.ofFloat(this@TouchImageVIew, "scaleX", 2f, 1f)
+//                val rotateY = ObjectAnimator.ofFloat(this@TouchImageVIew, "scaleY", 2f, 1f)
+//                val animSet = AnimatorSet()
+//                animSet.play(rotateX).with(rotateY)
+//                animSet.duration = 500
+//                animSet.start()
+                scaleY
+                val scaleAnimation = ScaleAnimation(
+                    2f,
+                    1f,
+                    2f,
+                    1f,
+                    Animation.RELATIVE_TO_SELF,
+                    0.5f,
+                    Animation.RELATIVE_TO_SELF,
+                    0.5f
+                )
+                scaleAnimation.duration = 500
+                scaleAnimation.fillAfter = true
+                startAnimation(scaleAnimation)
+                LogUtil.e(TAG, "onDoubleTap width $width height $height ")
                 currentScaleStatus = 0
             }
             return super.onDoubleTap(e)

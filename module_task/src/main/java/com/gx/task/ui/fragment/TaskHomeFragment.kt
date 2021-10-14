@@ -7,20 +7,22 @@ import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gx.accountbooks.base.BaseFragment
 import com.gx.module_task.databinding.FragmentTaskHomeBinding
+import com.gx.task.getTaskData
 import com.gx.task.di.demo.Person
 import com.gx.task.ui.adapter.RvTaskListAdapter
 import com.gx.task.vm.TaskViewModel
 import com.gx.utils.log.LogUtil
+import dagger.hilt.android.AndroidEntryPoint
 import com.tencent.mars.xlog.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 /**
  * A fragment representing a list of Items.
  */
+@AndroidEntryPoint
 class TaskHomeFragment : BaseFragment() {
     var dataBinding: FragmentTaskHomeBinding? = null
 

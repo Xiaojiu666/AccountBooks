@@ -15,7 +15,6 @@
         android:name="com.gx.task.TaskApplication"
         android:theme="@style/Theme.Note">
         <activity android:name="com.gx.task.ui.activities.TaskActivity">
-        <activity android:name="com.gx.task.TaskActivity">
 
         </activity>
 

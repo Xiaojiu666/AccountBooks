@@ -9,13 +9,12 @@ import com.gx.plugin_common.BuildConfig
 import com.gx.utils.apk.AppInfoUtil
 import com.gx.utils.log.LogUtil
 
-abstract class BaseApplication : Application() {
-
+open class BaseApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
         initBasePlugin()
-        initRoom(applicationContext)
+//        initRoom(applicationContext)
         initARouter()
     }
 
@@ -28,7 +27,6 @@ abstract class BaseApplication : Application() {
         ARouter.init(this@BaseApplication)
     }
 
-    abstract fun initRoom(application: Context)
 
      open fun initBasePlugin(){
         initFileRootConfig();

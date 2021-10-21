@@ -9,7 +9,6 @@ class TaskApplication : BaseApplication() {
 
     val appContainer = AppContainer()
 
-    override fun initRoom(application: Context) {}
 
     override fun initBasePlugin() {
         super.initBasePlugin()

@@ -80,9 +80,6 @@ dependencies {
     api library.androidx_constraintlayout
 
 
-
-
-
     implementation "com.alibaba:arouter-api:1.4.1"
     kapt "com.alibaba:arouter-compiler:1.2.2"
 
@@ -93,6 +90,10 @@ dependencies {
     /* MD 控件*/
     api google.material
 
+    //    /*room 数据库*/
+    api library.room_runtime
+    api library.room_ktx
+    kapt library.room_compiler
 
 
     /* Dagger2 */

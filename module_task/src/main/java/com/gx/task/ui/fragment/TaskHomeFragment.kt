@@ -22,6 +22,7 @@ import kotlinx.coroutines.withContext
  */
 @AndroidEntryPoint
 class TaskHomeFragment : BaseFragment() {
+
     var dataBinding: FragmentTaskHomeBinding? = null
 
     private val viewModel: TaskViewModel by viewModels()
@@ -32,7 +33,7 @@ class TaskHomeFragment : BaseFragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = RvTaskListAdapter(getTaskData())
         }
-        LogUtil.e(viewModel.name)
+        LogUtil.e(viewModel.toString())
         viewModel.tasks.observe(viewLifecycleOwner) {
             val rvTaskListAdapter = taskRecyclerView.adapter as RvTaskListAdapter
             rvTaskListAdapter.list = it
@@ -46,7 +47,7 @@ class TaskHomeFragment : BaseFragment() {
     }
 
     private suspend fun insertData() = withContext(Dispatchers.IO) {
-        viewModel.taskRepository.createTasks(
+        viewModel.taskRepository.insertTasks(
             getTaskData()
         )
     }

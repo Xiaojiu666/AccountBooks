@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="taskList"
-            type="com.gx.task.model.data.Task" />
+            type="com.gx.data.task.Task" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -33,7 +32,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/base_margin_3"
-                android:text="@{taskList.taskName}"
+                android:text="@{taskList.title}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 android:textSize="@dimen/base_list_title"
                 app:layout_constraintEnd_toStartOf="@+id/imageView2"

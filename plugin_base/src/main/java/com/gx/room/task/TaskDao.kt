@@ -1,7 +1,7 @@
-package com.gx.task.model.room
+package com.gx.room.task
 
 import androidx.room.*
-import com.gx.task.model.data.Task
+import com.gx.data.task.Task
 import kotlinx.coroutines.flow.Flow
 
 @Dao

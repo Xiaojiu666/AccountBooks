@@ -1,4 +1,4 @@
-package com.gx.task.model.data
+package com.gx.data.task
 
 data class TaskDetailInfo(var taskId: Int) {
 

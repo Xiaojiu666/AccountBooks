@@ -1,7 +1,7 @@
 package com.gx.task.repository
 
-import com.gx.task.model.data.TaskDetailInfo
-import com.gx.task.model.data.Task
+import com.gx.data.task.TaskDetailInfo
+import com.gx.data.task.Task
 
 interface TaskDataSource {
     fun getTaskList() : List<Task>

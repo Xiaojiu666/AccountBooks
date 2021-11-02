@@ -1,4 +1,4 @@
-package com.gx.task.model.data
+package com.gx.data.task
 
 enum class TaskStatus {
     IN_PROGRESS, COMPLETE, LATE

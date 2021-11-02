@@ -1,7 +1,7 @@
 package com.gx.task.repository
 
-import com.gx.task.model.data.Task
-import com.gx.task.model.room.TaskDao
+import com.gx.data.task.Task
+import com.gx.room.task.TaskDao
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -13,16 +13,17 @@ class TaskRepository @Inject constructor(
 
     fun getTaskList() = localDataSource.getTaskList()
 
-    fun createTask(task: Task) = localDataSource.createTask(task)
+    fun insertTask(task: Task) = localDataSource.insertTask(task)
 
-    fun createTasks(task: MutableList<Task>) = localDataSource.createTasks(task)
+    fun insertTasks(task: MutableList<Task>) = localDataSource.insertTasks(task)
+
 
     class TaskLocalDataSource @Inject constructor(private var taskDao: TaskDao) {
         fun getTaskList() = taskDao.getAllTaskData()
 
-        fun createTask(task: Task) = taskDao.insert(task)
+        fun insertTask(task: Task) = taskDao.insert(task)
 
-        fun createTasks(task: MutableList<Task>) =taskDao.insertAll(task)
+        fun insertTasks(task: MutableList<Task>) =taskDao.insertAll(task)
 
     }
 

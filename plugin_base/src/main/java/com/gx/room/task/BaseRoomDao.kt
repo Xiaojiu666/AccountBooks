@@ -1,11 +1,8 @@
-package com.gx.task.model.room
+package com.gx.room.task
 
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import com.gx.task.model.data.Task
-import kotlinx.coroutines.flow.Flow
 
 interface BaseRoomDao<T> {
 

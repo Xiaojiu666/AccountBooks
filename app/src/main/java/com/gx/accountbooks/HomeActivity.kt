@@ -64,6 +64,10 @@ class HomeActivity : BaseAppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+    override fun isHome(): Boolean {
+        return true
+    }
 }
 
 

@@ -6,5 +6,6 @@
         <item name="textInputSignInStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
 <!--        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Catalog.BottomSheetDialog</item>-->
         <item name="windowActionModeOverlay">true</item>
+        <item name="colorControlActivated"> ?attr/colorPrimary</item>
     </style>
 </resources>

@@ -32,7 +32,6 @@ import com.gx.utils.log.LogUtil
     abstract fun getLayoutView(inflater: LayoutInflater): View?
 
     fun createView(resId: Int): View {
-//        View.inflate(baseContext,R.layout.activity_task,null)
         return LayoutInflater.from(context).inflate(resId, null)
     }
 }

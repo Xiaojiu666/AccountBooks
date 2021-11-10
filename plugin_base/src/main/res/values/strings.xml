@@ -29,4 +29,5 @@
 
 
     <string name="monthly_income">%s月收入(元)</string>
+    <string name="base_loading">加载中。。。</string>
 </resources>

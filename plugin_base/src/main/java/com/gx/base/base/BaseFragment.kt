@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.gx.ui.dialog.LoadingDialog
 import com.gx.utils.log.LogUtil
+import javax.inject.Inject
 
 /**
  * Created by GuoXu on 2020/10/14 16:34.
@@ -14,6 +16,10 @@ import com.gx.utils.log.LogUtil
  abstract class BaseFragment : Fragment() {
 
     val TAG  by lazy { this.javaClass.name }
+
+
+    @Inject
+    lateinit var loadingDialog: LoadingDialog
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -8,6 +8,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.gx.base.themeswitcher.ThemeOverlayUtils.applyThemeOverlays
+import com.gx.ui.dialog.LoadingDialog
+import javax.inject.Inject
 
 /**
  * Created by GuoXu on 2020/10/13 19:26.
@@ -15,6 +17,10 @@ import com.gx.base.themeswitcher.ThemeOverlayUtils.applyThemeOverlays
 abstract class BaseAppCompatActivity : AppCompatActivity() {
 
     val TAG: String = javaClass.name
+
+
+    @Inject
+    lateinit var loadingDialog: LoadingDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

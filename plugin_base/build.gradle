@@ -96,6 +96,10 @@ dependencies {
     kapt library.room_compiler
 
 
+    implementation "com.google.dagger:hilt-android:2.38"
+    kapt "com.google.dagger:hilt-android-compiler:2.38"
+
+
     /* Dagger2 */
 //    api library.dagger2
 //    kapt library.dagger2

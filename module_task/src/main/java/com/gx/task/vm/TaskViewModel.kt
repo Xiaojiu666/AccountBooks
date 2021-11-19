@@ -16,7 +16,7 @@ class TaskViewModel @Inject constructor(
     var taskRepository: TaskRepository
 ) : ViewModel() {
 
-    val tasks: LiveData<MutableList<Task>> = getTasks()
+    val tasks: LiveData<MutableList<Task>> = taskRepository.getTaskList().asLiveData()
 
 
     suspend fun getTasks() = withContext(Dispatchers.IO) {

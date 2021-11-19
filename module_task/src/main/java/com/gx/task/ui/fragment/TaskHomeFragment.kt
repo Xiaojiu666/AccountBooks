@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gx.accountbooks.base.BaseFragment
 import com.gx.module_task.databinding.FragmentTaskHomeBinding
 import com.gx.task.getTaskData
+import com.gx.task.ui.activities.NewTask
 import com.gx.task.ui.activities.NewTaskActivity
+import com.gx.task.ui.activities.NewTaskVbActivity
 import com.gx.task.ui.adapter.RvTaskListAdapter
 import com.gx.task.vm.TaskViewModel
 import com.gx.ui.dialog.LoadingDialog
@@ -66,7 +68,7 @@ class TaskHomeFragment : BaseFragment() {
     }
 
     fun startNewTaskActivity() {
-        val intent = Intent(activity, NewTaskActivity::class.java)
+        val intent = Intent(activity, NewTask::class.java)
         startActivity(intent)
     }
 

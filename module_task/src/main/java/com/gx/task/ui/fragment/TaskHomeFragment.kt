@@ -68,7 +68,7 @@ class TaskHomeFragment : BaseFragment() {
     }
 
     fun startNewTaskActivity() {
-        val intent = Intent(activity, NewTask::class.java)
+        val intent = Intent(activity, NewTaskVbActivity::class.java)
         startActivity(intent)
     }
 

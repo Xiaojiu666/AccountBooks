@@ -9,19 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gx.accountbooks.base.BaseFragment
 import com.gx.module_task.databinding.FragmentTaskHomeBinding
 import com.gx.task.getTaskData
-import com.gx.task.ui.activities.NewTask
-import com.gx.task.ui.activities.NewTaskActivity
-import com.gx.task.ui.activities.NewTaskVbActivity
+import com.gx.task.ui.activities.TaskNewActivity
 import com.gx.task.ui.adapter.RvTaskListAdapter
 import com.gx.task.vm.TaskViewModel
-import com.gx.ui.dialog.LoadingDialog
 import com.gx.utils.log.LogUtil
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 /**
  * A fragment representing a list of Items.
@@ -32,23 +26,19 @@ class TaskHomeFragment : BaseFragment() {
     var dataBinding: FragmentTaskHomeBinding? = null
 
     private val viewModel: TaskViewModel by viewModels()
-
+    val rvTaskListAdapter = RvTaskListAdapter(null)
 
     override fun initView(view: View) {
         val taskRecyclerView = dataBinding?.taskRecyclerView
         with(taskRecyclerView!!) {
             layoutManager = LinearLayoutManager(context)
-            adapter = RvTaskListAdapter(null)
+            adapter = rvTaskListAdapter
         }
         LogUtil.e(viewModel.toString())
 
-        viewModel.tasks.observe(viewLifecycleOwner) {
-            LogUtil.e(TAG, Thread.currentThread().name)
-            loadingDialog.show(parentFragmentManager, "");
-            val rvTaskListAdapter = taskRecyclerView.adapter as RvTaskListAdapter
+        viewModel.mPlans.observe(this) {
+            LogUtil.d(TAG, "observe mTask ${it.size}")
             rvTaskListAdapter.list = it
-            loadingDialog.dismiss()
-            LogUtil.e(it.toString())
         }
 
         dataBinding!!.imageView3.setOnClickListener {
@@ -68,7 +58,7 @@ class TaskHomeFragment : BaseFragment() {
     }
 
     fun startNewTaskActivity() {
-        val intent = Intent(activity, NewTaskVbActivity::class.java)
+        val intent = Intent(activity, TaskNewActivity::class.java)
         startActivity(intent)
     }
 

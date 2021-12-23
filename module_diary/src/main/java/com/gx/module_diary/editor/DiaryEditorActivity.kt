@@ -6,8 +6,6 @@ import com.gx.base.base.BaseAppCompatActivity
 
 class DiaryEditorActivity : BaseAppCompatActivity() {
 
-    override fun init() {
-    }
 
     override fun initView() {
 

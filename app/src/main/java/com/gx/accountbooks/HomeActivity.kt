@@ -6,8 +6,6 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -25,9 +23,6 @@ class HomeActivity : BaseAppCompatActivity() {
 
     val homeVIewModel:HomeVIewModel by viewModels()
 
-    override fun init() {
-        LogUtil.e(homeVIewModel.homeR.name)
-    }
 
     override fun initView() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)

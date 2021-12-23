@@ -14,10 +14,9 @@ import javax.inject.Inject
 /**
  * Created by GuoXu on 2020/10/13 19:26.
  */
-abstract class BaseAppCompatActivity : AppCompatActivity() {
+abstract class BaseAppCompatActivity : AppCompatActivity()  {
 
     val TAG: String = javaClass.name
-
 
     @Inject
     lateinit var loadingDialog: LoadingDialog
@@ -25,12 +24,10 @@ abstract class BaseAppCompatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         applyThemeOverlays(this)
-        init()
         setContentView(getLayoutView())
         initView()
     }
 
-    abstract fun init()
 
     abstract fun initView()
 
@@ -42,13 +39,13 @@ abstract class BaseAppCompatActivity : AppCompatActivity() {
     abstract fun getLayoutView(): View
 
     fun createView(resId: Int): View {
-//        View.inflate(baseContext,R.layout.activity_task,null)
         return LayoutInflater.from(this).inflate(resId, null)
     }
 
-    fun initActionrBar(toolbar: Toolbar) {
+    fun initActionBar(toolbar: Toolbar) {
         setSupportActionBar(toolbar)
-        getSupportActionBar()!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
     }
 
 

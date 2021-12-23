@@ -151,7 +151,7 @@ abstract class BaseRecyclerViewAdapter<T>(var mList: MutableList<T>?) :
 
     abstract fun getItemViewHolder(parent: ViewGroup?): RecyclerView.ViewHolder
 
-    fun setItemOnClickEvent(holder: RecyclerView.ViewHolder) {
+   private fun setItemOnClickEvent(holder: RecyclerView.ViewHolder) {
         holder.itemView.setOnClickListener { v ->
             if (mOnItemClickListener != null) {
                 mOnItemClickListener!!.onItemClick(v, holder.layoutPosition)

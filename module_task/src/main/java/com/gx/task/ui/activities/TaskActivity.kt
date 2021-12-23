@@ -15,10 +15,6 @@ class TaskActivity : BaseAppCompatActivity() {
     @Inject
     lateinit var testRepository: TestRepository
 
-    override fun init() {
-        DaggerTestContainer.create().inject(this)
-    }
-
     override fun initView() {
         Log.e(TAG, "testRepository name : ${testRepository.returnName()}")
         Log.e(TAG,

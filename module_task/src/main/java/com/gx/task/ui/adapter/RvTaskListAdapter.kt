@@ -8,12 +8,12 @@ import com.gx.base.base.BaseRecyclerViewAdapter
 import com.gx.base.base.interfaces.OnItemClickListener
 import com.gx.module_task.R
 import com.gx.module_task.databinding.ItemTaskListBinding
-import com.gx.data.task.Task
+import com.gx.data.task.Plan
 import com.gx.task.ui.fragment.TaskHomeFragmentDirections
 
 
-class RvTaskListAdapter(mList: MutableList<Task>?) :
-    BaseRecyclerViewAdapter<Task>(mList) {
+class RvTaskListAdapter(mList: MutableList<Plan>?) :
+    BaseRecyclerViewAdapter<Plan>(mList) {
 
     private var dataBinding: ItemTaskListBinding? = null
 

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="taskList"
-            type="com.gx.data.task.Task" />
+            type="com.gx.data.task.Plan" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@{taskList.taskEndTime.toString()}"
+                android:text="@{taskList.planEndTime.toString()}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/imageView"

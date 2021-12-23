@@ -14,7 +14,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class TestActivity : BaseAppCompatActivity() {
-    override fun init() {}
     override fun initView() {
         editTextTextPersonName.setOnClickListener {
             ARouter.getInstance().build(AppConfig.ACTIVITY_LOGIN).navigation()

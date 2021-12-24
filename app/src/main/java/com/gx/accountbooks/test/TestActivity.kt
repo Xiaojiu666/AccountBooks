@@ -14,6 +14,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class TestActivity : BaseAppCompatActivity() {
+
+
     override fun initView() {
         editTextTextPersonName.setOnClickListener {
             ARouter.getInstance().build(AppConfig.ACTIVITY_LOGIN).navigation()
@@ -37,7 +39,8 @@ class TestActivity : BaseAppCompatActivity() {
             }.start()
         }
     }
-    override fun getLayoutView(): View = View.inflate(baseContext,R.layout.activity_test,null)
+
+    override fun getLayoutView(): View = View.inflate(baseContext, R.layout.activity_test, null)
 
     suspend fun getMessageFromNetwork(): String {
         var name = ""

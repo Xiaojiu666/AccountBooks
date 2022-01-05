@@ -22,6 +22,8 @@ class HomeActivity : BaseAppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     val homeVIewModel:HomeVIewModel by viewModels()
+    override fun initData() {
+    }
 
 
     override fun initView() {

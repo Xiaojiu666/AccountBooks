@@ -31,22 +31,20 @@
                 android:id="@+id/task_tv_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginEnd="3dp"
+                android:layout_margin="@dimen/base_margin_3"
                 android:text="@{taskList.taskName}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 android:textSize="@dimen/base_title_one"
+                android:textColor="@color/color_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/radioButton2"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/radioButton2"
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/radio_button_complete"
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:padding="5dp"
-                android:src="@drawable/selector_radio_btn"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -55,7 +53,6 @@
                 android:id="@+id/tv_end_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:textSize="@dimen/base_title_three"

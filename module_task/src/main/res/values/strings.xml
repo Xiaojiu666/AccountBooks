@@ -3,4 +3,6 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="task_progress">进度</string>
+    <string name="complete_un">未完成</string>
+    <string name="complete">已完成</string>
 </resources>

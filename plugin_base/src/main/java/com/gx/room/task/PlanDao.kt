@@ -10,7 +10,6 @@ interface PlanDao : BaseRoomDao<Plan> {
     @Query("SELECT * FROM `plan` ")
     fun getAllPlanData(): Flow<MutableList<Plan>>
 
-
     @Query("SELECT title FROM  `plan`")
     fun getPlanTitles(): Flow<MutableList<String>>
 

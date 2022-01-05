@@ -28,7 +28,7 @@ android {
         consumerProguardFiles "consumer-rules.pro"
 
         ndk {
-            abiFilters  "armeabi-v7a"
+            abiFilters "armeabi-v7a"
         }
 
     }
@@ -37,6 +37,7 @@ android {
     }
     buildFeatures {
         dataBinding true
+        viewBinding = true
     }
     buildTypes {
         release {
@@ -45,7 +46,7 @@ android {
         }
     }
 
-    compileOptions{
+    compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }

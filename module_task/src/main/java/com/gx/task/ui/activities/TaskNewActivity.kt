@@ -152,7 +152,9 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
             R.id.task_save -> {
                 val currentSelectorPlan = viewModel.currentSelectorPlan
                 val taskTitle = mBinding.taskEtTitle.text.toString()
-                saveTask(currentSelectorPlan.planId, taskTitle)
+                for (a in 1..5) {
+                    saveTask(currentSelectorPlan.planId, taskTitle + a)
+                }
                 finish()
             }
         }

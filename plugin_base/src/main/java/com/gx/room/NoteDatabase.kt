@@ -20,6 +20,7 @@ abstract class NoteDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TaskDao?
 
+
     companion object {
         const val TAG = "RoomTaskDataBase"
 
@@ -35,17 +36,20 @@ abstract class NoteDatabase : RoomDatabase() {
         }
 
         private fun buildDatabase(appContext: Context): NoteDatabase {
-            val taskDbVersion = TASK_DB_VERSION
             return Room.databaseBuilder(
                 appContext,
                 NoteDatabase::class.java,
                 TASK_DB_NAME
-            ).addCallback(object : RoomDatabase.Callback() {
-                override fun onCreate(db: SupportSQLiteDatabase) {
-                    super.onCreate(db)
-                    LogUtil.e(TAG, "onCreate ")
-                }
-            }).fallbackToDestructiveMigration().build()
+            )
+                .addCallback(object : RoomDatabase.Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        LogUtil.e(TAG, "onCreate ")
+                    }
+                })
+//                .fallbackToDestructiveMigration()
+                .addMigrations(upgradeMigration4_5())
+                .build()
         }
     }
 }

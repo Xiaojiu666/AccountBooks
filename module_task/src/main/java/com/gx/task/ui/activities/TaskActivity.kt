@@ -14,6 +14,8 @@ class TaskActivity : BaseAppCompatActivity() {
 
     @Inject
     lateinit var testRepository: TestRepository
+    override fun initData() {
+    }
 
     override fun initView() {
         Log.e(TAG, "testRepository name : ${testRepository.returnName()}")

@@ -26,8 +26,10 @@ abstract class BaseAppCompatActivity : AppCompatActivity()  {
         applyThemeOverlays(this)
         setContentView(getLayoutView())
         initView()
+        initData()
     }
 
+    abstract fun initData()
 
     abstract fun initView()
 

@@ -13,14 +13,14 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class TestActivity : BaseAppCompatActivity() {
-
+open class TestActivity : BaseAppCompatActivity() {
+    override fun initData() {
+    }
 
     override fun initView() {
         editTextTextPersonName.setOnClickListener {
             ARouter.getInstance().build(AppConfig.ACTIVITY_LOGIN).navigation()
         }
-
 
         GlobalScope.launch(Dispatchers.Main) {
             LogUtil.e(TAG, "TAG${getMessageFromNetwork()}")

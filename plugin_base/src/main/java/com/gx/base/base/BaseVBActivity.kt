@@ -1,9 +1,9 @@
 package com.gx.base.base
 
 import android.view.View
-import androidx.databinding.ViewDataBinding
+import androidx.viewbinding.ViewBinding
 
-abstract class BaseVBActivity<VB : ViewDataBinding> : BaseAppCompatActivity() {
+abstract class BaseVBActivity<VB : ViewBinding> : BaseAppCompatActivity() {
 
     val mBinding: VB by lazy(mode = LazyThreadSafetyMode.NONE) {
         getViewBinding(layoutInflater)
@@ -18,5 +18,9 @@ abstract class BaseVBActivity<VB : ViewDataBinding> : BaseAppCompatActivity() {
     }
 
     abstract fun VB.initBinding()
+
+    override fun initData() {
+
+    }
 
 }

@@ -3,7 +3,7 @@ package com.gx.room
 object RoomConfig {
 
 
-    const val TASK_DB_VERSION = 4
+    const val TASK_DB_VERSION = 5
     const val TASK_DB_NAME = "note_database"
 
 

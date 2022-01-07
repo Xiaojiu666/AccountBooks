@@ -6,6 +6,8 @@ import com.gx.data.task.Plan
 import com.gx.task.repository.TaskRepository
 import com.gx.utils.log.LogUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -55,11 +57,13 @@ class TaskViewModel @Inject constructor(
     }
 
 
-    suspend fun upDateTaskList(taskList: MutableList<Task>) {
+    fun upDateTaskList(taskList: MutableList<Task>) {
         LogUtil.d(TAG, "upDateTaskList ${taskList.toString()}")
         LogUtil.d(TAG, "upDateTaskList ${taskRepository.toString()}")
         LogUtil.d(TAG, "upDateTaskList ${viewModelScope.toString()}")
-        taskRepository.upgradeTasks(taskList)
+        GlobalScope.launch(Dispatchers.IO) {
+            taskRepository.upgradeTasks(taskList)
+        }
     }
 
     suspend fun upDateTask(task: Task) {

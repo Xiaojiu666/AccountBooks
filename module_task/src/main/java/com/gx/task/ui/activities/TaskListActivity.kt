@@ -30,18 +30,11 @@ class TaskListActivity : BaseVBActivity<ActivityTaskListBinding>() {
             rvTaskListAdapter.mRecyclerView = this
             adapter = rvTaskListAdapter
         }
-//        with(taskRvListUn) {
-//            layoutManager = LinearLayoutManager(context)
-//            rvTaskListAdapter.mRecyclerView = this
-//            adapter = rvTaskListAdapterUn
-//        }
     }
 
     private fun initListener() {
         mBinding.taskTvCompleteUn.setOnClickListener {
-            GlobalScope.launch(Dispatchers.IO) {
-                viewModel.upDateTaskList(rvTaskListAdapter.list!!)
-            }
+            viewModel.upDateTaskList(rvTaskListAdapter.list!!)
         }
     }
 
@@ -54,7 +47,7 @@ class TaskListActivity : BaseVBActivity<ActivityTaskListBinding>() {
             mBinding.toolbar.title = title
         }
         viewModel.mTasks.observe(this) {
-            LogUtil.e(TAG,"mTasks : $it")
+            LogUtil.e(TAG, "mTasks : $it")
             rvTaskListAdapter.list = it
             rvTaskListAdapterUn.list = it
         }
@@ -62,9 +55,7 @@ class TaskListActivity : BaseVBActivity<ActivityTaskListBinding>() {
 
     override fun onPause() {
         super.onPause()
-        GlobalScope.launch(Dispatchers.IO) {
-            viewModel.upDateTaskList(rvTaskListAdapter.list!!)
-        }
+        viewModel.upDateTaskList(rvTaskListAdapter.list!!)
         LogUtil.d("onDestroy ${rvTaskListAdapter.list.toString()}")
     }
 }

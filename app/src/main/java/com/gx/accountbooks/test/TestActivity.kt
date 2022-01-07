@@ -226,6 +226,8 @@ class TestActivity : BaseAppCompatActivity() {
         return name
     }
 
+
+
     fun test() {
         val person = Person("gx", "12345678@qq.com")
         val let = person.let {

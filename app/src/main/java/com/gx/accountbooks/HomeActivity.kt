@@ -11,6 +11,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequest
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.gx.base.base.BaseAppCompatActivity
@@ -22,7 +26,14 @@ class HomeActivity : BaseAppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun initData() {
+        val build = OneTimeWorkRequestBuilder<TestWorkManager>().build()
+        WorkManager.getInstance(baseContext).enqueue(build)
 
+        WorkManager.getInstance(baseContext).beginUniqueWork("IMAGE_MANIPULATION_WORK_NAME", // 任务名称
+            ExistingWorkPolicy.REPLACE, // 任务相同的执行策略 分为REPLACE，KEEP，APPEND
+            mutableListOf(
+                OneTimeWorkRequest.from(TestWorkManager::class.java)
+            )).enqueue()
     }
 
 

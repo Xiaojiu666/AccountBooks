@@ -72,6 +72,7 @@ dependencies {
 
     implementation project(path: ':plugin_base')
     implementation project(path: ':plugin_common')
+    implementation 'androidx.work:work-runtime-ktx:2.5.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
@@ -111,6 +112,8 @@ dependencies {
      * 报表
      */
     api librarys.MPchart
+
+    implementation "androidx.work:work-runtime-ktx:2.5.0"
 
     implementation "com.alibaba:arouter-api:1.4.1"
     kapt "com.alibaba:arouter-compiler:1.2.2"

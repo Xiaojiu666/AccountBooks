@@ -1,7 +1,10 @@
 package com.gx.task.ui.activities
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.text.Editable
 import android.text.TextUtils
+import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -9,10 +12,11 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.gx.base.base.BaseVBActivity
+import com.gx.base.base.vb.BaseVBActivity
 import com.gx.data.task.Task
 import com.gx.data.task.Plan
 import com.gx.module_task.R
@@ -35,6 +39,21 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
         initActionBar(toolbar)
         tvChoicePlan.setOnClickListener {
             initPlanDialog()
+        }
+        taskEtDesc.addTextChangedListener(MyTextWatcher())
+    }
+
+    inner class MyTextWatcher : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        }
+
+        @SuppressLint("SetTextI18n")
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            LogUtil.d(TAG, "start $start , before $before , count $count")
+            mBinding.textDescSize.text = "${start + count}/140"
+        }
+
+        override fun afterTextChanged(s: Editable?) {
         }
     }
 
@@ -131,16 +150,22 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
         viewModel.insertPlan(task)
     }
 
-    private fun saveTask(parentId: Long, title: String) {
-        if (TextUtils.isEmpty(title)) {
+    private fun saveTask() {
+        val currentSelectorPlan = viewModel.currentSelectorPlan
+        val taskTitle = mBinding.taskEtTitle.text.toString()
+        if (currentSelectorPlan == null) {
+            Toast.makeText(this, "请选择关联计划", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (TextUtils.isEmpty(taskTitle)) {
             Toast.makeText(this, "请输入任务名称", Toast.LENGTH_SHORT).show()
             return
         }
-        val subTask = Task(parentId)
+        val subTask = Task(currentSelectorPlan.planId)
         with(subTask) {
             taskEndTime = System.currentTimeMillis()
             taskNotificationTime = System.currentTimeMillis()
-            taskName = title
+            taskName = taskTitle
             taskDescription = mBinding.taskEtDesc.text.toString()
         }
         viewModel.insertTask(subTask)
@@ -150,11 +175,7 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.task_save -> {
-                val currentSelectorPlan = viewModel.currentSelectorPlan
-                val taskTitle = mBinding.taskEtTitle.text.toString()
-                for (a in 1..5) {
-                    saveTask(currentSelectorPlan.planId, taskTitle + a)
-                }
+                saveTask()
                 finish()
             }
         }

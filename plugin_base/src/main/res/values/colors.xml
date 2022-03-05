@@ -9,6 +9,7 @@
     <color name="color_white">#fff</color>
     <color name="color_tran">#00000000</color>
     <color name="color_gray">#cccccc</color>
+    <color name="color_red">#FF0000</color>
 
 
 </resources>

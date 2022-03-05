@@ -19,7 +19,7 @@
     <string name="menu_account_book">账本</string>
     <string name="menu_diary">日记本</string>
 
-    <string name="task_hint_sub_title">子任务标题</string>
+    <string name="task_hint_sub_title">任务标题</string>
     <string name="task_name">任务名称</string>
     <string name="task_add_describe">添加备注</string>
     <string name="task_set_end_time">设置到期时间</string>

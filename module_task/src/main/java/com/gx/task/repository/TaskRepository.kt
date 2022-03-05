@@ -13,11 +13,14 @@ class TaskRepository @Inject constructor(
     var localDataSource: TaskLocalDataSource,
     var remoteDataSource: TaskRemoteDataSource,
 ) {
+
     val TAG = "TaskRepository"
 
     fun getPlanList() = localDataSource.getPlanList()
 
     fun getPlanTitleList() = localDataSource.getPlanTitleList()
+
+    fun getTaskList4PlanId(paintId: Long, taskStatus: Int) = localDataSource.getTaskList4PlanId(paintId, taskStatus)
 
     fun getTaskList4PlanId(paintId: Long) = localDataSource.getTaskList4PlanId(paintId)
 
@@ -28,12 +31,13 @@ class TaskRepository @Inject constructor(
     fun insertTasks(plan: MutableList<Plan>) = localDataSource.insertTasks(plan)
 
     fun upgradeTasks(taskList: MutableList<Task>) {
-        LogUtil.d(TAG,"upgradeTasks ${taskList.toString()}")
+        LogUtil.d(TAG, "upgradeTasks ${taskList.toString()}")
         localDataSource.upgradeTasks(taskList)
     }
 
-    suspend  fun upgradeTask(task: Task){
-        LogUtil.d(TAG,"upgradeTask ${task.toString()}")
+
+    suspend fun upgradeTask(task: Task) {
+        LogUtil.d(TAG, "upgradeTask ${task.toString()}")
         localDataSource.upgradeTask(task)
     }
 
@@ -46,7 +50,11 @@ class TaskRepository @Inject constructor(
 
         fun getPlanTitleList() = planDao.getPlanTitles()
 
-        fun getTaskList4PlanId(paintId: Long) = taskDao.getTaskList4PlanId(paintId)
+        fun getTaskList4PlanId(paintId: Long, taskStatus: Int) =
+            taskDao.getTaskList4PlanId(paintId, taskStatus)
+
+        fun getTaskList4PlanId(paintId: Long) =
+            taskDao.getTaskList4PlanId(paintId)
 
         fun upgradeTasks(taskList: MutableList<Task>) = taskDao.upgradeTasks(taskList)
 

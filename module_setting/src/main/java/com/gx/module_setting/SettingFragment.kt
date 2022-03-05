@@ -8,11 +8,16 @@ import kotlinx.android.synthetic.main.fragment_setting.*
 
 class SettingFragment : BaseFragment() {
     var themeSwitcherHelper: ThemeSwitcherHelper? = null
-    override fun initView(view: View) {
+
+    override fun initView() {
         textView.setOnClickListener {
             themeSwitcherHelper = ThemeSwitcherHelper(parentFragmentManager)
             themeSwitcherHelper!!.showThemeSwitcher()
         }
+    }
+
+
+    override fun initData() {
     }
 
     override fun getLayoutView(inflater: LayoutInflater): View? {

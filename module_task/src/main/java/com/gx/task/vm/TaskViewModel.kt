@@ -19,19 +19,15 @@ class TaskViewModel @Inject constructor(
     val TAG = "TaskViewModel"
     val mPlans: LiveData<MutableList<Plan>> = taskRepository.getPlanList().asLiveData()
 
-
-//    val mPlans: LiveData<MutableList<Plan>> = taskRepository.getTaskList4PlanId().asLiveData()
-
     lateinit var mTasks: LiveData<MutableList<Task>>
 
-//    val mTask: MutableLiveData<Task> by lazy {
-//        MutableLiveData()
-//    }
-//
-//    val mPlanTitles: LiveData<MutableList<String>> =
-//        taskRepository.getPlanTitleList().asLiveData()
+    lateinit var mUnTasks: LiveData<MutableList<Task>>
 
-    lateinit var currentSelectorPlan: Plan
+    lateinit var allTask: LiveData<MutableList<Task>>
+
+    var currentSelectorPlan: Plan? = null
+
+    var test: LiveData<String> = liveData { }
 
 
     override fun onCleared() {
@@ -39,8 +35,13 @@ class TaskViewModel @Inject constructor(
         LogUtil.e("TaskViewModel", "onCleared")
     }
 
+
     fun getTaskList4PlanId(paintId: Long) {
-        mTasks = taskRepository.getTaskList4PlanId(paintId).asLiveData()
+        viewModelScope.launch {
+            mTasks = taskRepository.getTaskList4PlanId(paintId, 1).asLiveData()
+            mUnTasks = taskRepository.getTaskList4PlanId(paintId, 0).asLiveData()
+            allTask = taskRepository.getTaskList4PlanId(paintId).asLiveData()
+        }
     }
 
 
@@ -66,11 +67,13 @@ class TaskViewModel @Inject constructor(
         }
     }
 
-    suspend fun upDateTask(task: Task) {
+    fun upDateTask(task: Task) {
         LogUtil.d(TAG, "upgradeTask ${task.toString()}")
         LogUtil.d(TAG, "upgradeTask ${taskRepository.toString()}")
         LogUtil.d(TAG, "upgradeTask ${viewModelScope.toString()}")
-        taskRepository.upgradeTask(task)
+        GlobalScope.launch(Dispatchers.IO) {
+            taskRepository.upgradeTask(task)
+        }
     }
 }
 

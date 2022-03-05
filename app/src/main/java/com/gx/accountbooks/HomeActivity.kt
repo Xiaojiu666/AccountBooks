@@ -21,8 +21,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeActivity : BaseAppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
-    val homeVIewModel:HomeVIewModel by viewModels()
     override fun initData() {
+
     }
 
 

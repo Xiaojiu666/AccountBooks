@@ -104,14 +104,4 @@ dependencies {
     implementation "androidx.room:room-runtime:2.2.6"
     implementation "androidx.room:room-ktx:2.2.6"
     kapt "androidx.room:room-compiler:2.2.6"
-
-//    /*room 数据库*/
-//    api library.room_runtime
-//    api library.room_ktx
-//    kapt library.room_compiler
-
-
-    /* Dagger2 */
-//    implementation library.dagger2
-//    kapt library.dagger2
 }

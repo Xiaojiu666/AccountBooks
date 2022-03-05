@@ -12,10 +12,12 @@
         </activity>
 
         <activity
+
             android:name="com.gx.task.ui.activities.TaskNewActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
-
-        <activity android:name="com.gx.task.ui.activities.TaskListActivity" />
+        <activity
+            android:name="com.gx.task.ui.activities.TaskListActivity"
+            android:windowSoftInputMode="adjustUnspecified" />
 
     </application>
 </manifest>

@@ -18,7 +18,7 @@ import javax.inject.Inject
     @JvmField
     var taskViewModel: TaskDetailViewModel? = null
 
-    override fun initView(view: View) {
+    override fun initView() {
         val appContainer = (activity?.application as TaskApplication).appContainer
 //        taskViewModel = appContainer.taskDetailViewModel.create()
         LogUtil.e(TAG, "TaskDetail ")
@@ -30,7 +30,11 @@ import javax.inject.Inject
         }
     }
 
-    override fun getLayoutView(inflater: LayoutInflater): View? {
+
+     override fun initData() {
+     }
+
+     override fun getLayoutView(inflater: LayoutInflater): View? {
         inflate = FragmentTaskDetailBinding.inflate(layoutInflater)
         return inflate?.root
     }

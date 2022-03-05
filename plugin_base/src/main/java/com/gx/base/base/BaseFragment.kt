@@ -31,10 +31,13 @@ import javax.inject.Inject
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView(view)
+        initData()
+        initView()
     }
 
-    abstract  fun initView(view: View);
+    abstract  fun initView()
+
+    abstract  fun initData()
     abstract fun getLayoutView(inflater: LayoutInflater): View?
 
     fun createView(resId: Int): View {

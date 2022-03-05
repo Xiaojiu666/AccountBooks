@@ -5,4 +5,10 @@
     <string name="task_progress">进度</string>
     <string name="complete_un">未完成</string>
     <string name="complete">已完成</string>
+
+    <string name="classify_toady">今日计划</string>
+    <string name="classify_future_seven">未来七天</string>
+    <string name="classify_delay">已延期</string>
+    <string name="classify_done">已完成</string>
+    <string name="text_desc_size">0/140</string>
 </resources>

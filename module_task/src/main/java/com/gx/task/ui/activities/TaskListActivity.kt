@@ -1,17 +1,17 @@
 package com.gx.task.ui.activities
 
+import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.gx.base.base.BaseVBActivity
+import com.gx.base.base.vb.BaseVBActivity
 import com.gx.data.task.Plan
+import com.gx.data.task.Task
 import com.gx.module_task.databinding.ActivityTaskListBinding
+import com.gx.task.ui.SectionDecoration
 import com.gx.task.ui.adapter.RvTaskListAdapter
 import com.gx.task.vm.TaskViewModel
 import com.gx.utils.log.LogUtil
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class TaskListActivity : BaseVBActivity<ActivityTaskListBinding>() {
@@ -20,22 +20,30 @@ class TaskListActivity : BaseVBActivity<ActivityTaskListBinding>() {
     private lateinit var plan: Plan
 
     private val rvTaskListAdapter = RvTaskListAdapter(null)
-    private val rvTaskListAdapterUn = RvTaskListAdapter(null)
 
     override fun ActivityTaskListBinding.initBinding() {
         initActionBar(toolbar)
         initListener()
         with(taskRvList) {
             layoutManager = LinearLayoutManager(context)
-            rvTaskListAdapter.mRecyclerView = this
             adapter = rvTaskListAdapter
         }
+        val sectionDecoration =
+            SectionDecoration(baseContext, object : SectionDecoration.DecorationCallback {
+                override fun getGroupId(position: Int): Task {
+                    return rvTaskListAdapter.mList?.get(position)!!
+                }
+            })
+        taskRvList.addItemDecoration(sectionDecoration)
     }
 
     private fun initListener() {
-        mBinding.taskTvCompleteUn.setOnClickListener {
-            viewModel.upDateTaskList(rvTaskListAdapter.list!!)
-        }
+        rvTaskListAdapter.setOnItemCheckStatusListener(object :
+            RvTaskListAdapter.OnItemCheckStatusListener {
+            override fun onCheckItem(view: View, status: Int, position: Int) {
+                viewModel.upDateTask(rvTaskListAdapter.mList!![position])
+            }
+        })
     }
 
 
@@ -46,16 +54,9 @@ class TaskListActivity : BaseVBActivity<ActivityTaskListBinding>() {
             viewModel.getTaskList4PlanId(planId)
             mBinding.toolbar.title = title
         }
-        viewModel.mTasks.observe(this) {
+        viewModel.allTask.observe(this) {
             LogUtil.e(TAG, "mTasks : $it")
             rvTaskListAdapter.list = it
-            rvTaskListAdapterUn.list = it
         }
-    }
-
-    override fun onPause() {
-        super.onPause()
-        viewModel.upDateTaskList(rvTaskListAdapter.list!!)
-        LogUtil.d("onDestroy ${rvTaskListAdapter.list.toString()}")
     }
 }

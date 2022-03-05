@@ -12,9 +12,7 @@ def versions = rootProject.ext.versions
 android {
     compileSdkVersion versions.compileSdkVersion
     buildToolsVersion versions.buildToolsVersion
-    buildFeatures {
-        dataBinding true
-    }
+
     defaultConfig {
         applicationId versions.applicationId
         minSdkVersion versions.minSdkVersion
@@ -33,7 +31,10 @@ android {
             }
         }
     }
-
+    buildFeatures {
+        dataBinding true
+        viewBinding = true
+    }
     buildTypes {
         release {
             minifyEnabled false

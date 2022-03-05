@@ -1,18 +1,133 @@
 package com.gx.accountbooks.framework.ui.home
 
-import android.view.LayoutInflater
-import android.view.View
+import android.content.SharedPreferences
+import android.provider.Settings.System.putString
+import android.widget.TextView
+import androidx.fragment.app.viewModels
+import com.gx.accountbooks.HomeViewModel
 import com.gx.accountbooks.R
-import com.gx.accountbooks.base.BaseFragment
-import com.gx.myapplication.ui.home.HomeViewModel
+import com.gx.accountbooks.databinding.FragmentHomeBinding
+import com.gx.base.base.vb.BaseVBFragment
+import com.gx.utils.log.LogUtil
+import com.tencent.mars.xlog.Log
+import dagger.hilt.android.AndroidEntryPoint
+import org.w3c.dom.Text
 
-class HomeFragment : BaseFragment() {
+@AndroidEntryPoint
+class HomeFragment : BaseVBFragment<FragmentHomeBinding>() {
 
-    private lateinit var homeViewModel: HomeViewModel
-    override fun initView(view: View) {
+    val homeViewModel: HomeViewModel by viewModels()
+
+    override fun initData() {
+        val testStr = "abc"
+        val sumBy = sumBy(testStr) {
+            it.toInt()
+        }
+
+        val sumByInline = sumByInline(testStr) {
+            it.toInt()
+        }
+        println(sumBy)
+        println(sumByInline)
+        sumByT(testStr) { toInt1() }
+//        val sum = testStr.sumBy { it.toInt() }
+//        println(sum)
     }
 
-    override fun getLayoutView(inflater: LayoutInflater): View? = createView(R.layout.fragment_home)
+    fun toInt1(): Int {
+        return 10000
+    }
+
+    fun TestInterface.edit(commit: Boolean = false, action: TestInterface.() -> Unit) {
+
+    }
+
+
+    override fun FragmentHomeBinding.initBinding() {
+        textView.setStyle()
+        textView.myTextSize = 30f
+        LogUtil.d("homeViewModel ${textView.myTextSize}")
+        homeViewModel.currentTimeTransformed.observe(this@HomeFragment) {
+            textView.text = it
+        }
+        textView.setOnClickListener {
+            homeViewModel.getData()
+        }
+    }
+
+    fun saveToken(token: String) {
+        val sharedPreferences = activity?.getSharedPreferences("", 0)
+        sharedPreferences!!.edit(true) { putString(KEY_TOKEN, token) }
+
+    }
+
+    //扩展函数定义
+    fun TextView.setStyle() = this.apply {
+        var textName = "HelloWorld";
+        paint.isFakeBoldText = true
+        textSize = 16f
+        text = "HelloWorld"
+        setTextColor(resources.getColor(R.color.color_red))
+    }
+
+    //扩展函数定义
+    fun TextView.getName(): String {
+        var textName = "HelloWorld";
+        return text.toString()
+    }
+
+    var TextView.myTextSize: Float
+        get() {
+            return this.textSize
+        }
+        set(value) {
+            this.textSize = value
+        }
+
+    fun sumBy(char: String, selector: (Char) -> Int): Int {
+        var sum: Int = 0
+        for (element in char) {
+            sum += selector(element)
+        }
+        return sum
+    }
+
+
+    fun <T> sumByT(char: String, selector: () -> T): T {
+        return selector()
+    }
+    inline fun sumByInline(char: String, selector: (Char) -> Int): Int {
+        var sum: Int = 0
+        for (element in char) {
+            sum += selector(element)
+        }
+        return sum
+    }
+
+    // sumBy函数的源码
+//    inline fun CharSequence.sumBy(selector: (Char) -> Int): Int {
+//        var sum: Int = 0
+//        for (element in this) {
+//            sum += selector(element)
+//        }
+//        return sum
+//    }
+
+    fun SharedPreferences.edit(
+        commit: Boolean = false,
+        action: SharedPreferences.Editor.() -> Unit
+    ) {
+        val editor = edit()
+        action(editor)
+        if (commit) {
+            editor.commit()
+        } else {
+            editor.apply()
+        }
+    }
+
+    private val KEY_TOKEN = "token"
+
 
 //    override fun onCreateView(
 //        inflater: LayoutInflater,

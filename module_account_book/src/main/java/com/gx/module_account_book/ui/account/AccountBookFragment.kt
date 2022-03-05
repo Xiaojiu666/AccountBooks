@@ -9,9 +9,8 @@ import kotlinx.android.synthetic.main.sliding_background.*
 
 class AccountBookFragment : BaseFragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
 
-    override fun initView(view: View) {
+    override fun initView() {
 //        sliding_view_arrow.animate().rotationX(1.0f).start()
         accountMonthChartView.initBaseConfig()
 //        chart.setUsePercentValues(true)
@@ -53,6 +52,9 @@ class AccountBookFragment : BaseFragment() {
 //        chart.animateY(1400, Easing.EaseInOutQuad)
 //        //dataSet.setSelectionShift(0f);
 //        setData(2, 10.0f);
+    }
+
+    override fun initData() {
     }
 
     override fun getLayoutView(inflater: LayoutInflater): View? = createView(R.layout.fragment_account_home)

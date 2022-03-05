@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gx.accountbooks.base.BaseFragment
+import com.gx.base.base.vb.BaseVBFragment
 import com.gx.data.task.Plan
 import com.gx.module_task.databinding.FragmentTaskHomeBinding
 import com.gx.task.getTaskData
@@ -24,25 +25,28 @@ import kotlinx.coroutines.withContext
  * A fragment representing a list of Items.
  */
 @AndroidEntryPoint
-class TaskHomeFragment : BaseFragment() {
-
-    var dataBinding: FragmentTaskHomeBinding? = null
+class TaskHomeFragment : BaseVBFragment<FragmentTaskHomeBinding>() {
 
     private val viewModel: TaskViewModel by viewModels()
     private val rvTaskListAdapter = RvPlanListAdapter(null)
 
-    override fun initView(view: View) {
-        val taskRecyclerView = dataBinding?.taskRecyclerView
-        with(taskRecyclerView!!) {
+
+    override fun FragmentTaskHomeBinding.initBinding() {
+        with(taskRecyclerView) {
             layoutManager = LinearLayoutManager(context)
             adapter = rvTaskListAdapter
         }
+        taskFbAdd.setOnClickListener {
+            startNewTaskActivity()
+        }
+    }
+
+
+    override fun initView() {
+        super.initView()
         viewModel.mPlans.observe(this) {
             LogUtil.d(TAG, "observe mTask ${it.size}")
             rvTaskListAdapter.list = it
-        }
-        dataBinding!!.taskFbAdd.setOnClickListener {
-            startNewTaskActivity()
         }
         val onItemClickListener: (view: View, position: Int) -> Unit = { view, position ->
             val plan = rvTaskListAdapter.list!![position]
@@ -51,16 +55,20 @@ class TaskHomeFragment : BaseFragment() {
         rvTaskListAdapter.setOnItemClickListener(onItemClickListener)
     }
 
+    override fun initData() {
+
+    }
+
     private suspend fun insertData() = withContext(Dispatchers.IO) {
         viewModel.taskRepository.insertTasks(
             getTaskData()
         )
     }
 
-    override fun getLayoutView(inflater: LayoutInflater): View? {
-        dataBinding = FragmentTaskHomeBinding.inflate(layoutInflater)
-        return dataBinding!!.root
-    }
+//    override fun getLayoutView(inflater: LayoutInflater): View? {
+//        dataBinding = FragmentTaskHomeBinding.inflate(layoutInflater)
+//        return dataBinding!!.root
+//    }
 
     private fun startNewTaskActivity() {
         val intent = Intent(activity, TaskNewActivity::class.java)

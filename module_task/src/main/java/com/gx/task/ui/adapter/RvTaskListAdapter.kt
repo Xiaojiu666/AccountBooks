@@ -19,7 +19,6 @@ class RvTaskListAdapter(mList: MutableList<Task>?) :
     companion object {
         const val TYPE_ITEM_COMPLETE_UN = 0
         const val TYPE_ITEM_COMPLETE = 1
-        const val TYPE_Header = 2
     }
 
 //    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -29,9 +28,6 @@ class RvTaskListAdapter(mList: MutableList<Task>?) :
 //            else -> getItemViewHolder(parent)
 //        }
 //    }
-
-    private var bindingComplete: ItemTaskListCompleteBinding? = null
-    lateinit var mRecyclerView: RecyclerView
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val taskListInfo = mList!![position]
@@ -49,7 +45,7 @@ class RvTaskListAdapter(mList: MutableList<Task>?) :
         }
 
         fun bind(task: Task, position: Int) {
-            LogUtil.d("taskListInfo ${task}")
+//            LogUtil.d("taskListInfo ${task}")
             binding.taskList = task
             binding.tvEndTime.text = task.taskEndTime.toDateStr()
             when (task.taskStatus) {
@@ -68,8 +64,8 @@ class RvTaskListAdapter(mList: MutableList<Task>?) :
                 } else {
                     task.taskStatus = TYPE_ITEM_COMPLETE_UN
                 }
-                notifyItemChanged(position)
-//                onItemCheckStatusListener!!.onCheckItem(it, task.taskStatus)
+//                notifyItemChanged(position)
+                onItemCheckStatusListener.onCheckItem(it, task.taskStatus, position)
             }
         }
     }
@@ -97,6 +93,10 @@ class RvTaskListAdapter(mList: MutableList<Task>?) :
     }
 
     interface OnItemCheckStatusListener {
-        fun onCheckItem(view: View, status: Int)
+        fun onCheckItem(view: View, status: Int, position: Int)
+    }
+
+    override fun getItemId(position: Int): Long {
+        return list!![position].taskCreateTime
     }
 }

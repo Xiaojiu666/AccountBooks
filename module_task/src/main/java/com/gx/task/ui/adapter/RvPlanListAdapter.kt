@@ -23,16 +23,7 @@ class RvPlanListAdapter(mList: MutableList<Plan>?) :
     }
 
     inner class TaskListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-//        init {
-////            setOnItemClickListener { view, position ->
-////                navigateToPlant(position, view)
-////            }
-//        }
-    }
 
-    private fun navigateToPlant(plantId: Int, view: View) {
-        val direction = TaskHomeFragmentDirections.actionTaskHomeDetail(0)
-        view.findNavController().navigate(direction)
     }
 
     override fun getItemViewHolder(parent: ViewGroup?): RecyclerView.ViewHolder {

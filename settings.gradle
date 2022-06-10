@@ -8,3 +8,5 @@ include ':module_account_book'
 include ':module_diary'
 include ':app'
 rootProject.name = "AccountBooks"
+include ':module_ablout'
+include ':module_about_us'

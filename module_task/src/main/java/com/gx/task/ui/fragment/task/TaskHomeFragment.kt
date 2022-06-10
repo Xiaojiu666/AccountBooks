@@ -1,17 +1,14 @@
-package com.gx.task.ui.fragment
+package com.gx.task.ui.fragment.task
 
 import android.content.Intent
-import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.gx.accountbooks.base.BaseFragment
 import com.gx.base.base.vb.BaseVBFragment
 import com.gx.data.task.Plan
 import com.gx.module_task.databinding.FragmentTaskHomeBinding
 import com.gx.task.getTaskData
-import com.gx.task.ui.activities.TaskActivity
 import com.gx.task.ui.activities.TaskListActivity
 import com.gx.task.ui.activities.TaskNewActivity
 import com.gx.task.ui.adapter.RvPlanListAdapter

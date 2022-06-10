@@ -7,7 +7,7 @@ import com.gx.base.base.vb.BaseVBActivity
 import com.gx.data.task.Plan
 import com.gx.data.task.Task
 import com.gx.module_task.databinding.ActivityTaskListBinding
-import com.gx.task.ui.SectionDecoration
+import com.gx.task.ui.view.SectionDecoration
 import com.gx.task.ui.adapter.RvTaskListAdapter
 import com.gx.task.vm.TaskViewModel
 import com.gx.utils.log.LogUtil

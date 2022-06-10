@@ -56,7 +56,6 @@ android {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
-
             }
         }
     }

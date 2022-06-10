@@ -1,4 +1,4 @@
-package com.gx.task.ui
+package com.gx.task.ui.view
 
 import android.content.Context
 import android.view.View
@@ -9,8 +9,6 @@ import android.R
 import android.content.res.Resources
 import android.graphics.*
 import android.text.TextUtils
-
-import com.gx.utils.log.LogUtil
 
 
 class SectionDecoration(var context: Context, var callback: DecorationCallback) :

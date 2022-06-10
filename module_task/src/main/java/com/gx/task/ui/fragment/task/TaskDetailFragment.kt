@@ -1,4 +1,4 @@
-package com.gx.task.details
+package com.gx.task.ui.fragment.task
 
 import android.view.LayoutInflater
 import android.view.View

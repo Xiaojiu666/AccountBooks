@@ -8,7 +8,6 @@ import com.gx.base.base.BaseRecyclerViewAdapter
 import com.gx.module_task.R
 import com.gx.data.task.Plan
 import com.gx.module_task.databinding.ItemPlanListBinding
-import com.gx.task.ui.fragment.TaskHomeFragmentDirections
 
 
 class RvPlanListAdapter(mList: MutableList<Plan>?) :

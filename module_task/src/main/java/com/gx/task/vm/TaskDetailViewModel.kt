@@ -2,7 +2,7 @@ package com.gx.task.vm
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.gx.task.details.TaskDetailInfo
+import com.gx.task.repository.data.TaskDetailInfo
 import com.gx.task.repository.TaskRepository
 import javax.inject.Inject
 

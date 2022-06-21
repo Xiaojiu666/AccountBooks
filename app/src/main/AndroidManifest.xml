@@ -14,7 +14,11 @@
         tools:replace="android:name,android:roundIcon,android:icon">
 
         <activity android:name="com.gx.accountbooks.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name="com.gx.accountbooks.test.TestActivity">
 
@@ -25,11 +29,7 @@
         <activity android:name=".test.SecondActivity" />
 
         <activity android:name=".test.FirstActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

@@ -7,6 +7,7 @@ plugins {
 def librarys = rootProject.ext.dependencies
 def androidX = rootProject.ext.androidX
 def versions = rootProject.ext.versions
+def google = rootProject.ext.google
 android {
     compileSdkVersion versions.compileSdkVersion
     buildToolsVersion versions.buildToolsVersion
@@ -55,11 +56,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
 
-
     implementation librarys.common_email
     implementation librarys.common_email_activation
 
     api librarys.androidx_recyclerview
 
-
+    api google.auto_service
+    kapt google.auto_service
 }

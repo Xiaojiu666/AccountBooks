@@ -1,5 +1,6 @@
 package com.gx.accountbooks.test;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -10,19 +11,25 @@ import android.os.Message;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.gx.accountbooks.R;
+import com.tencent.mars.xlog.Log;
 
 import org.w3c.dom.Text;
 
+import java.util.Map;
+
 public class FirstActivity extends AppCompatActivity {
 
+    public static final String TAG = "FirstActivity";
 
     private TextView textView;
 
@@ -34,7 +41,8 @@ public class FirstActivity extends AppCompatActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toSecondActivity();
+//                toSecondActivity();
+                requestPermission();
             }
         });
     }
@@ -42,6 +50,11 @@ public class FirstActivity extends AppCompatActivity {
     public void toSecondActivity() {
         Intent intent = new Intent(this, SecondActivity.class);
         intentActivityResultLauncher.launch(intent);
+    }
+
+    public void requestPermission() {
+        String[] strings = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        intentActivityResultLauncherP.launch(strings);
     }
 
     private ActivityResultContract<Intent, String> activityResultContract = new ActivityResultContract<Intent, String>() {
@@ -66,4 +79,26 @@ public class FirstActivity extends AppCompatActivity {
             textView.setText(result);
         }
     });
+    private ActivityResultLauncher<Intent> intentActivityResultLauncher1 = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+
+        }
+    });
+    private ActivityResultLauncher<String[]> intentActivityResultLauncherP = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), new ActivityResultCallback<Map<String, Boolean>>() {
+        @Override
+        public void onActivityResult(Map<String, Boolean> result) {
+
+        }
+
+//        @Override
+//        public void onActivityResult(String[] result) {
+//
+//        }
+//        @Override
+//        public void onActivityResult(Boolean result) {
+//            Log.d(TAG, "RequestPermission result" + result);
+//        }
+    });
+
 }

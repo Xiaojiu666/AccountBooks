@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.autoservice.IActivity
 import com.gx.base.base.vb.BaseVBFragment
 import com.gx.data.task.Plan
 import com.gx.module_task.databinding.FragmentTaskHomeBinding
@@ -17,6 +18,7 @@ import com.gx.utils.log.LogUtil
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.util.*
 
 /**
  * A fragment representing a list of Items.
@@ -35,6 +37,12 @@ class TaskHomeFragment : BaseVBFragment<FragmentTaskHomeBinding>() {
         }
         taskFbAdd.setOnClickListener {
             startNewTaskActivity()
+        }
+        taskTvToady.setOnClickListener {
+            val load = ServiceLoader.load(IActivity::class.java,javaClass.classLoader).toList()
+            load.forEach {
+                it.jump2Activity(requireContext())
+            }
         }
     }
 

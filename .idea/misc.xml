@@ -9,13 +9,17 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1765625" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.36283345454518534" />
         <entry key="app/src/main/res/layout/test_activity_first.xml" value="0.3765625" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.215625" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.13703703703703704" />
         <entry key="module_login/src/main/res/layout/test.xml" value="0.29791666666666666" />
+        <entry key="module_task/src/main/res/layout/activity_task.xml" value="0.27760416666666665" />
         <entry key="module_task/src/main/res/layout/activity_task_list.xml" value="0.3307291666666667" />
         <entry key="module_task/src/main/res/layout/activity_task_new.xml" value="0.28541666666666665" />
         <entry key="module_task/src/main/res/layout/fragment_task_detail.xml" value="0.196875" />
         <entry key="module_task/src/main/res/layout/fragment_task_home.xml" value="0.23101034310629118" />
         <entry key="module_task/src/main/res/layout/item_plan_list.xml" value="0.2359375" />
+        <entry key="module_task/src/main/res/layout/item_task_list.xml" value="0.30104166666666665" />
+        <entry key="module_task/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
       </map>
     </option>
   </component>

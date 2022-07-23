@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
 }
 
+
 def librarys = rootProject.ext.dependencies
 def androidX = rootProject.ext.androidX
 def versions = rootProject.ext.versions
@@ -63,4 +64,9 @@ dependencies {
 
     api google.auto_service
     kapt google.auto_service
+
+    api librarys.rxjava
+    api librarys.rxAndroid
+
+    api 'com.github.tbruyelle:rxpermissions:0.12'
 }

@@ -45,28 +45,8 @@ class RvTaskListAdapter(mList: MutableList<Task>?) :
         }
 
         fun bind(task: Task, position: Int) {
-//            LogUtil.d("taskListInfo ${task}")
             binding.taskList = task
-            binding.tvEndTime.text = task.taskEndTime.toDateStr()
-            when (task.taskStatus) {
-                TYPE_ITEM_COMPLETE_UN -> {
-                    binding.radioButton2.setImageResource(R.drawable.ic_baseline_radio_button_unchecked_24)
-                }
-                TYPE_ITEM_COMPLETE -> {
-                    binding.radioButton2.setImageResource(R.drawable.ic_baseline_radio_button_checked_24)
-                    binding.taskTvName.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG; // 中划线
-                    binding.taskTvName.setTextColor(binding.taskTvName.context.getColor(R.color.color_gray))
-                }
-            }
-            binding.radioButton2.setOnClickListener {
-                if (task.taskStatus == 0) {
-                    task.taskStatus = TYPE_ITEM_COMPLETE
-                } else {
-                    task.taskStatus = TYPE_ITEM_COMPLETE_UN
-                }
-//                notifyItemChanged(position)
-                onItemCheckStatusListener.onCheckItem(it, task.taskStatus, position)
-            }
+            binding.tvEndTime.text = task.taskCreateTime.toDateStr()
         }
     }
 

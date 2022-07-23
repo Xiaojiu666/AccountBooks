@@ -16,13 +16,26 @@ import com.google.android.material.navigation.NavigationView
 import com.gx.base.base.BaseAppCompatActivity
 import com.gx.utils.log.LogUtil
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.*
+import java.io.IOException
 
 @AndroidEntryPoint
 class HomeActivity : BaseAppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun initData() {
+        var url = "http://192.168.1.24:8080/";
+        var okHttpClient = OkHttpClient.Builder().build()
+        var request = Request.Builder().url(url).build()
+        okHttpClient.newCall(request).enqueue(object : Callback {
+            override fun onResponse(call: Call?, response: Response?) {
+                LogUtil.d(TAG, response!!.body()!!.string().toString())
+            }
 
+            override fun onFailure(call: Call?, e: IOException?) {
+                LogUtil.d(TAG, e!!.message)
+            }
+        })
     }
 
 
@@ -37,7 +50,11 @@ class HomeActivity : BaseAppCompatActivity() {
 //        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.menu_home, R.id.menu_account, R.id.menu_diary,R.id.menu_task,R.id.menu_setting
+                R.id.menu_home,
+                R.id.menu_account,
+                R.id.menu_diary,
+                R.id.menu_task,
+                R.id.menu_setting
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

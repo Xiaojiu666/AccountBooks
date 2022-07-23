@@ -1,7 +1,7 @@
 package com.gx.accountbooks.framework.ui.home
 
+import android.Manifest
 import android.content.SharedPreferences
-import android.provider.Settings.System.putString
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.gx.accountbooks.HomeViewModel
@@ -9,12 +9,10 @@ import com.gx.accountbooks.R
 import com.gx.accountbooks.databinding.FragmentHomeBinding
 import com.gx.base.base.vb.BaseVBFragment
 import com.gx.utils.log.LogUtil
-import com.tencent.mars.xlog.Log
 import dagger.hilt.android.AndroidEntryPoint
-import org.w3c.dom.Text
 
 @AndroidEntryPoint
-class HomeFragment : BaseVBFragment<FragmentHomeBinding>() {
+open class HomeFragment : BaseVBFragment<FragmentHomeBinding>() {
 
     val homeViewModel: HomeViewModel by viewModels()
 
@@ -42,6 +40,15 @@ class HomeFragment : BaseVBFragment<FragmentHomeBinding>() {
 
     }
 
+//    @AndroidPermission(permissions = [Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE])
+    open fun getTime() {
+//        try {
+//            Thread.sleep(3000);
+//        } catch (e: InterruptedException) {
+//            e.printStackTrace();
+//        }
+        android.util.Log.i("handleGetTime", "执行了getTime方法: ");
+    }
 
     override fun FragmentHomeBinding.initBinding() {
         textView.setStyle()
@@ -51,7 +58,8 @@ class HomeFragment : BaseVBFragment<FragmentHomeBinding>() {
             textView.text = it
         }
         textView.setOnClickListener {
-            homeViewModel.getData()
+//            homeViewModel.getData()
+            getTime()
         }
     }
 
@@ -96,6 +104,7 @@ class HomeFragment : BaseVBFragment<FragmentHomeBinding>() {
     fun <T> sumByT(char: String, selector: () -> T): T {
         return selector()
     }
+
     inline fun sumByInline(char: String, selector: (Char) -> Int): Int {
         var sum: Int = 0
         for (element in char) {

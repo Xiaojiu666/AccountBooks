@@ -8,7 +8,6 @@ import com.google.autoservice.IActivity
 
 @AutoService(IActivity::class)
 class Jump2FirstActivity : IActivity {
-
     override fun jump2Activity(context: Context) {
         val intent = Intent(context, FirstActivity::class.java)
         context.startActivity(intent)

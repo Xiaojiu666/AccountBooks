@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.gx.accountbooks">
 
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.gx.accountbooks.MainApplication"
         android:allowBackup="true"
@@ -11,6 +14,7 @@
         android:roundIcon="@mipmap/launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Note"
+        android:usesCleartextTraffic="true"
         tools:replace="android:name,android:roundIcon,android:icon">
 
         <activity android:name="com.gx.accountbooks.HomeActivity">

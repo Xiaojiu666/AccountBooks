@@ -7,6 +7,8 @@ import com.gx.base.base.vb.BaseVBActivity
 import com.gx.data.task.Plan
 import com.gx.data.task.Task
 import com.gx.module_task.databinding.ActivityTaskListBinding
+import com.gx.task.test.ProxyTest
+import com.gx.task.test.TimeInterfaces
 import com.gx.task.ui.view.SectionDecoration
 import com.gx.task.ui.adapter.RvTaskListAdapter
 import com.gx.task.vm.TaskViewModel
@@ -28,6 +30,8 @@ class TaskListActivity : BaseVBActivity<ActivityTaskListBinding>() {
             layoutManager = LinearLayoutManager(context)
             adapter = rvTaskListAdapter
         }
+
+
         val sectionDecoration =
             SectionDecoration(baseContext, object : SectionDecoration.DecorationCallback {
                 override fun getGroupId(position: Int): Task {

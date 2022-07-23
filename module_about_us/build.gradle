@@ -5,6 +5,7 @@ if (isLirary.toBoolean()) {
 }
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+
 def versions = rootProject.ext.versions
 android {
     compileSdkVersion versions.compileSdkVersion

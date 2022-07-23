@@ -48,7 +48,7 @@ android {
     }
 
     buildFeatures {
-        dataBinding  = true
+        dataBinding = true
     }
 
     compileOptions {
@@ -95,10 +95,15 @@ dependencies {
     /* MD 控件*/
     api google.material
 
-    //    /*room 数据库*/
+    /*room 数据库*/
     api library.room_runtime
     api library.room_ktx
     kapt library.room_compiler
+
+    /*网络框架*/
+    api library.retrofit2
+    api library.okhttp
+
 
     implementation 'org.xerial:sqlite-jdbc:3.34.0'
 

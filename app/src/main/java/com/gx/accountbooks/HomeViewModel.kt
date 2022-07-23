@@ -29,7 +29,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun getData() {
-        LogUtil.d("getData ${currentTimeTransformed.value}")
+//        LogUtil.d("getData ${currentTimeTransformed.value}")
     }
 
     // Simulates a long-running computation in a background thread

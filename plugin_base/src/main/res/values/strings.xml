@@ -29,8 +29,8 @@
     <string name="task_new_desc">添加备注</string>
     <string name="base_save">保存</string>
 
-    <string name="plan_choice">请选择计划</string>
-    <string name="plan_create">创建计划</string>
+    <string name="plan_choice">请选择任务分组</string>
+    <string name="plan_create">创建任务</string>
     <string name="plan_hint_name">请输入您的计划名称</string>
 
     <string name="plan_tips">您还有没制定任何计划，是否去创建?</string>

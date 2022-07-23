@@ -13,7 +13,7 @@ interface TaskDao : BaseRoomDao<Task> {
     @Query("SELECT * FROM task Where parentPlanId =:planId AND taskStatus =:taskStatus ORDER BY taskCreateTime ")
     fun getTaskList4PlanId(planId: Long, taskStatus: Int): Flow<MutableList<Task>>
 
-    @Query("SELECT * FROM task Where parentPlanId =:planId ORDER BY taskCreateTime AND taskStatus")
+    @Query("SELECT * FROM task Where parentPlanId =:planId ORDER BY taskCreateTime DESC")
     fun getTaskList4PlanId(planId: Long): Flow<MutableList<Task>>
 
     @Update

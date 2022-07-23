@@ -13,3 +13,4 @@ fun Long.toDateStr(pattern: String = "yyyy-MM-dd HH:mm:ss"): String {
     val format = SimpleDateFormat(pattern)
     return format.format(date)
 }
+

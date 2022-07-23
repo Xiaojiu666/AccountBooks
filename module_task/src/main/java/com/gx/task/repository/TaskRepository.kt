@@ -28,7 +28,12 @@ class TaskRepository @Inject constructor(
 
     suspend fun insertTask(task: Task) = localDataSource.insertTask(task)
 
-    fun insertTasks(plan: MutableList<Plan>) = localDataSource.insertTasks(plan)
+
+    fun insertPlans(plan: MutableList<Plan>) = localDataSource.insertPlans(plan)
+
+    fun insertTasks(task: MutableList<Task>) = localDataSource.insertTasks(task)
+
+
 
     fun upgradeTasks(taskList: MutableList<Task>) {
         LogUtil.d(TAG, "upgradeTasks ${taskList.toString()}")
@@ -64,7 +69,9 @@ class TaskRepository @Inject constructor(
 
         suspend fun insertTask(task: Task) = taskDao.insert(task)
 
-        fun insertTasks(plan: MutableList<Plan>) = planDao.insertAll(plan)
+        fun insertPlans(plan: MutableList<Plan>) = planDao.insertAll(plan)
+
+        fun insertTasks(task: MutableList<Task>) = taskDao.insertAll(task)
 
     }
 

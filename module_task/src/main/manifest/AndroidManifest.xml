@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:name="com.gx.task.TaskApplication"
         android:theme="@style/Theme.Note">
+
         <activity android:name="com.gx.task.ui.activities.TaskActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +26,14 @@
         <activity android:name="com.gx.task.di.base.BaseActivity">
 
         </activity>
+
+        <activity
+            android:name="com.gx.task.ui.activities.TaskNewActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+
+        <activity
+            android:name="com.gx.task.ui.activities.TaskListActivity"
+            android:windowSoftInputMode="adjustUnspecified" />
     </application>
 
 </manifest>

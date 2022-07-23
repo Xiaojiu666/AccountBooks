@@ -9,11 +9,15 @@ import android.R
 import android.content.res.Resources
 import android.graphics.*
 import android.text.TextUtils
+import com.gx.utils.date.PATTERN_Y_M_D
+import com.gx.utils.date.toDateStr
+import com.gx.utils.log.LogUtil
 
 
 class SectionDecoration(var context: Context, var callback: DecorationCallback) :
     RecyclerView.ItemDecoration() {
 
+    private val TAG = "SectionDecoration";
     private var textPaint: TextPaint = TextPaint()
     private var paint: Paint = Paint()
     private var topGap = 32
@@ -55,13 +59,17 @@ class SectionDecoration(var context: Context, var callback: DecorationCallback) 
         for (i in 0 until childCount) {
             val view: View = parent.getChildAt(i)
             val position: Int = parent.getChildAdapterPosition(view)
-            val groupId: Task = callback.getGroupId(position)
-            val textLine = if (groupId.taskStatus == 0) {
-                "未完成"
-            } else {
-                "已完成"
-            }
+            val taskInfo: Task = callback.getGroupId(position)
+            val taskCreateDate = taskInfo.taskCreateTime.toDateStr(PATTERN_Y_M_D)
+            LogUtil.d(TAG, "onDraw task time$taskCreateDate")
+            val textLine = taskCreateDate;
+//            val textLine = if (taskInfo.taskStatus == 0) {
+//                "未完成"
+//            } else {
+//                "已完成"
+//            }
             if (position == 0 || isFirstInGroup(position)) {
+                LogUtil.d("isFirstInGroup is true${taskCreateDate}" )
                 val top = (view.top - topGap).toFloat()
 //                LogUtil.d("onDraw view left = ${view.left} , top = ${view.top}  , right = ${view.right}  , bottom = ${view.bottom}")
                 val bottom = view.top.toFloat()
@@ -78,7 +86,7 @@ class SectionDecoration(var context: Context, var callback: DecorationCallback) 
         } else {
             val prevGroupId: Task = callback.getGroupId(pos - 1)
             val groupId: Task = callback.getGroupId(pos)
-            prevGroupId.taskStatus != groupId.taskStatus
+            prevGroupId.taskCreateTime.toDateStr(PATTERN_Y_M_D) != groupId.taskCreateTime.toDateStr(PATTERN_Y_M_D)
         }
     }
 

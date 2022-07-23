@@ -12,8 +12,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/library_log" />
             <option value="$PROJECT_DIR$/library_v_editor" />
-            <option value="$PROJECT_DIR$/module_ablout" />
             <option value="$PROJECT_DIR$/module_about_us" />
             <option value="$PROJECT_DIR$/module_account_book" />
             <option value="$PROJECT_DIR$/module_diary" />

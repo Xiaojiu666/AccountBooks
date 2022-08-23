@@ -2,8 +2,8 @@ package com.gx.accountbooks
 
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -15,6 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.gx.base.base.BaseAppCompatActivity
 import com.gx.utils.log.LogUtil
+import com.sn.libaray.log.logger
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.*
 import java.io.IOException
@@ -65,6 +66,7 @@ class HomeActivity : BaseAppCompatActivity() {
             Log.e("navController", destination.label.toString());
             Log.e("navController", destination.toString());
         }
+
     }
 
     override fun getLayoutView(): View = createView(R.layout.activity_main)
@@ -73,6 +75,45 @@ class HomeActivity : BaseAppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        LogUtil.d(TAG, "onOptionsItemSelected ${item.itemId}")
+
+        when (item.itemId) {
+            R.id.action_chart -> {
+                logger.debug(TAG)
+                logger.verbose(TAG)
+                logger.warn(TAG)
+                logger.info(TAG)
+                logger.error(TAG)
+//                var startTime = System.currentTimeMillis()
+//                for (name in 0..10000) {
+//                    logger.debug(TAG + "onOptionsItemSelected name $name")
+//                }
+//                var end = System.currentTimeMillis()
+//                logger.error(TAG + "onOptionsItemSelected time ${end - startTime}")
+            }
+            R.id.action_favorite -> {
+//                var startTime = System.currentTimeMillis()
+//                for (name in 0..10000) {
+//                    Log.d(TAG, "onOptionsItemSelected name $name")
+//                }
+//                var end = System.currentTimeMillis()
+//                logger.error(TAG + "onOptionsItemSelected time ${end - startTime}")
+            }
+            R.id.action_test -> {
+//                var startTime = System.currentTimeMillis()
+//                for (name in 0..10000) {
+//                    LogUtil.d(TAG, "onOptionsItemSelected name $name")
+//                }
+//                var end = System.currentTimeMillis()
+//                logger.error(TAG + "onOptionsItemSelected time ${end - startTime}")
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)

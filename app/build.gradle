@@ -4,7 +4,6 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'com.learn.zip'
-apply plugin: 'android-aspectjx'
 
 
 
@@ -63,17 +62,7 @@ android {
     kotlinOptions{
         jvmTarget = "1.8"
     }
-
-    //这是官网样例
-    aspectjx {
-        exclude 'versions.9'
-        exclude 'com.squareup'
-        exclude 'leakcanary'
-        exclude 'com.taobao'
-        exclude 'com.ut'
-    }
 }
-
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -95,6 +84,7 @@ dependencies {
         implementation project(path: ':module_task')
         implementation project(path: ':module_diary')
         implementation project(path: ':module_setting')
+        implementation project(path: ':library_log')
     }
 
 //    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha06"
@@ -137,7 +127,6 @@ dependencies {
 //    implementation librarys.okhttp
     implementation "com.squareup.okhttp3:okhttp:3.7.0"
 
-    implementation 'org.aspectj:aspectjrt:1.8.9'
 
 }
 

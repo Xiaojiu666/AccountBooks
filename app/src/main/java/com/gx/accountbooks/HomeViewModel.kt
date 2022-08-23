@@ -23,7 +23,7 @@ class HomeViewModel @Inject constructor(
 
     var currentTimeTransformed:LiveData<String> = Transformations.switchMap(currentTime){
         liveData {
-            LogUtil.d("currentTimeTransformed ${it}")
+//            LogUtil.d("currentTimeTransformed ${it}")
             emit(timeStampToTime(it))
         }
     }

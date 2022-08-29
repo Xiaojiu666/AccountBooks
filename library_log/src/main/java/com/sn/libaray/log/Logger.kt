@@ -27,6 +27,9 @@ class Logger() {
             ) { proxy, method, args ->
                 val analysisAnnotation = analysisAnnotation(method)
                 if (loggerFilter!!.filter(analysisAnnotation) == FilterResult.NEUTRAL) {
+                    args.forEach {
+                        
+                    }
                     method.invoke(loggerServiceImpl, *args)
                 }
             } as LoggerService

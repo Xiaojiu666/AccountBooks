@@ -18,7 +18,10 @@ import com.gx.utils.log.LogUtil
 import com.sn.libaray.log.logger
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.*
+import org.json.JSONArray
+import org.json.JSONObject
 import java.io.IOException
+
 
 @AndroidEntryPoint
 class HomeActivity : BaseAppCompatActivity() {
@@ -76,6 +79,9 @@ class HomeActivity : BaseAppCompatActivity() {
         return true
     }
 
+    var xd =
+        "{'students':[{'stu_id':'1001','stu_name':'十一郎'},{'stu_id':'1002','stu_name':'十二郎'}],'flag':'1','teacher':{'tea_id':'2001','tea_name':'晓春'}}";
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         LogUtil.d(TAG, "onOptionsItemSelected ${item.itemId}")
@@ -86,7 +92,7 @@ class HomeActivity : BaseAppCompatActivity() {
                 logger.verbose(TAG)
                 logger.warn(TAG)
                 logger.info(TAG)
-                logger.error(TAG)
+                logger.error(formatDataFromJson(xd)!!)
 //                var startTime = System.currentTimeMillis()
 //                for (name in 0..10000) {
 //                    logger.debug(TAG + "onOptionsItemSelected name $name")

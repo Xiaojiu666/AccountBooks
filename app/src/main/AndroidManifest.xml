@@ -30,9 +30,24 @@
 
         <activity android:name="com.gx.module_login.mvp.ui.login.LoginActivity" />
 
-        <activity android:name=".test.SecondActivity" />
+        <activity
+            android:name=".test.activity.SingleTaskActivity"
+            android:launchMode="singleTask">
 
-        <activity android:name=".test.FirstActivity" >
+        </activity>
+
+        <activity
+            android:name=".test.activity.SingleTopActivity"
+            android:launchMode="singleTop">
+
+
+        </activity>
+
+        <activity android:name=".test.activity.FirstActivity">
+
+        <activity
+            android:name=".test.activity.SingleInsanceActivity"
+            android:launchMode="singleInstance">
 
         </activity>
     </application>

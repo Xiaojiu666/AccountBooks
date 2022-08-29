@@ -1,4 +1,4 @@
-package com.gx.accountbooks.test;
+package com.gx.accountbooks.test.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -18,15 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.gx.accountbooks.R;
 
-public class SecondActivity extends AppCompatActivity {
+public class SingleTopActivity extends BaseActivity {
 
 
-    private String test = "Reading is a happy thing. For those who love reading, once they read it,\n" +
-            "they can't stop, they can't give up reading, they want to read to the \n" +
-            "ends of the world. Some people say: \"the deepest and most peaceful \n" +
-            "happiness Calm down, open the book, the deposition \n" +
-            "of ink a little bit over the space, those dusty happiness a little bit \n" +
-            "open. Reading is really fun.";
+    private String test = "SingleTopActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

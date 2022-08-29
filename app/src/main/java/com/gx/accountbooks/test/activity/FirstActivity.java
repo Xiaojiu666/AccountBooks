@@ -1,13 +1,10 @@
-package com.gx.accountbooks.test;
+package com.gx.accountbooks.test.activity;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,13 +18,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.gx.accountbooks.R;
-import com.tencent.mars.xlog.Log;
-
-import org.w3c.dom.Text;
 
 import java.util.Map;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
 
     public static final String TAG = "FirstActivity";
 
@@ -41,14 +35,13 @@ public class FirstActivity extends AppCompatActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                toSecondActivity();
-                requestPermission();
+                toSecondActivity();
             }
         });
     }
 
     public void toSecondActivity() {
-        Intent intent = new Intent(this, SecondActivity.class);
+        Intent intent = new Intent(this, SingleTopActivity.class);
         intentActivityResultLauncher.launch(intent);
     }
 

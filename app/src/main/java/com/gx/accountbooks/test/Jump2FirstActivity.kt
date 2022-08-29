@@ -5,6 +5,7 @@ import android.content.Intent
 import com.google.auto.service.AutoService
 //import com.google.auto.service.AutoService
 import com.google.autoservice.IActivity
+import com.gx.accountbooks.test.activity.FirstActivity
 
 @AutoService(IActivity::class)
 class Jump2FirstActivity : IActivity {

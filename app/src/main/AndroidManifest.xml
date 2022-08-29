@@ -18,11 +18,7 @@
         tools:replace="android:name,android:roundIcon,android:icon">
 
         <activity android:name="com.gx.accountbooks.HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="com.gx.accountbooks.test.TestActivity">
 
@@ -40,13 +36,19 @@
             android:name=".test.activity.SingleTopActivity"
             android:launchMode="singleTop">
 
-
         </activity>
 
         <activity android:name=".test.activity.FirstActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
 
         <activity
-            android:name=".test.activity.SingleInsanceActivity"
+            android:name=".test.activity.SingleInstanceActivity"
             android:launchMode="singleInstance">
 
         </activity>

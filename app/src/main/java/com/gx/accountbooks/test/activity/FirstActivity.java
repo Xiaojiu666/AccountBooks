@@ -25,19 +25,10 @@ public class FirstActivity extends BaseActivity {
 
     public static final String TAG = "FirstActivity";
 
-    private TextView textView;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test_activity_first);
-        textView = (TextView) findViewById(R.id.textView11);
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toSecondActivity();
-            }
-        });
+
     }
 
     public void toSecondActivity() {
@@ -69,7 +60,7 @@ public class FirstActivity extends BaseActivity {
     private ActivityResultLauncher<Intent> intentActivityResultLauncher = registerForActivityResult(activityResultContract, new ActivityResultCallback<String>() {
         @Override
         public void onActivityResult(String result) {
-            textView.setText(result);
+//            textView.setText(result);
         }
     });
     private ActivityResultLauncher<Intent> intentActivityResultLauncher1 = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {

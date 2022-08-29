@@ -92,7 +92,7 @@ class HomeActivity : BaseAppCompatActivity() {
                 logger.verbose(TAG)
                 logger.warn(TAG)
                 logger.info(TAG)
-                logger.error(formatDataFromJson(xd)!!)
+//                logger.error(formatDataFromJson(xd)!!)
 //                var startTime = System.currentTimeMillis()
 //                for (name in 0..10000) {
 //                    logger.debug(TAG + "onOptionsItemSelected name $name")

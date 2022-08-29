@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ASMIdeaPluginConfiguration">
-    <asm skipDebug="false" skipFrames="false" skipCode="false" expandFrames="false" />
-    <groovy codeStyle="LEGACY" />
-  </component>
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Study/androidCode/AccountBooks/app/src/main/res/layout/test_activity_first.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1625" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1625" />
@@ -14,7 +11,6 @@
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.36283345454518534" />
         <entry key="app/src/main/res/layout/test_activity_first.xml" value="0.3765625" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.215625" />
-        <entry key="app/src/main/res/menu/main.xml" value="0.15572916666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.13703703703703704" />
         <entry key="module_login/src/main/res/layout/test.xml" value="0.29791666666666666" />
         <entry key="module_task/src/main/res/layout/activity_task.xml" value="0.27760416666666665" />

@@ -12,3 +12,8 @@ include ':app'
 include ':module_about_us'
 
 include ':library_log'
+include ':annotation-compiler'
+include ':lib'
+include ':annotation'
+include ':lib2'
+include ':processpor'

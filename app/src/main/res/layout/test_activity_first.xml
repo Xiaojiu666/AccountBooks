@@ -55,7 +55,7 @@
         android:id="@+id/tv_name"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:textColor="@color/color_white"
+        android:textColor="@color/colorAppTheme"
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

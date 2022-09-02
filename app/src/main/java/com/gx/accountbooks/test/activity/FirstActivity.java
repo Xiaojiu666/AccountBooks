@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
@@ -15,19 +14,27 @@ import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.anno.annotation_compiler.RouteAnnotation;
 import com.gx.accountbooks.R;
+import com.gx.processpor.ZyaoAnnotation;
 
 import java.util.Map;
 
+@ZyaoAnnotation(
+        name = "Zyao",
+        text = "Hello !!! Welcome "
+)
 public class FirstActivity extends BaseActivity {
 
     public static final String TAG = "FirstActivity";
 
+    private TextView textView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.test_activity_first);
 
     }
 
@@ -60,7 +67,7 @@ public class FirstActivity extends BaseActivity {
     private ActivityResultLauncher<Intent> intentActivityResultLauncher = registerForActivityResult(activityResultContract, new ActivityResultCallback<String>() {
         @Override
         public void onActivityResult(String result) {
-//            textView.setText(result);
+            textView.setText(result);
         }
     });
     private ActivityResultLauncher<Intent> intentActivityResultLauncher1 = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {

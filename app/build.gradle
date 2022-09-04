@@ -94,9 +94,9 @@ dependencies {
 //    implementation project(path: ':annotation')
     implementation project(path: ':annotation-compiler')
     kapt project(path: ':annotation-compiler')
-
-    implementation project(path: ':processpor')
-    kapt project(path: ':processpor')
+//
+//    implementation project(path: ':processpor')
+//    kapt project(path: ':processpor')
 //    kapt project(path: ':lib2')
 
     implementation librarys.lifecycle_extensions

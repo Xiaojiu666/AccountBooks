@@ -17,14 +17,15 @@ import androidx.annotation.Nullable;
 
 import com.anno.annotation_compiler.RouteAnnotation;
 import com.gx.accountbooks.R;
-import com.gx.processpor.ZyaoAnnotation;
+//import com.gx.processpor.ZyaoAnnotation;
 
 import java.util.Map;
 
-@ZyaoAnnotation(
-        name = "Zyao",
-        text = "Hello !!! Welcome "
-)
+//@ZyaoAnnotation(
+//        name = "Zyao",
+//        text = "Hello !!! Welcome "
+//)
+@RouteAnnotation( name = "Zyao")
 public class FirstActivity extends BaseActivity {
 
     public static final String TAG = "FirstActivity";

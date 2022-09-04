@@ -30,7 +30,7 @@ public class TestClass extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-        messager.printMessage(Diagnostic.Kind.NOTE, "Hello Word ～");
+        messager.printMessage(Diagnostic.Kind.NOTE, "Hello Word TestClass");
         return false;
     }
 }

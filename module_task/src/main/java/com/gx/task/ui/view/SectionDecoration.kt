@@ -11,7 +11,7 @@ import android.graphics.*
 import android.text.TextUtils
 import com.gx.utils.date.PATTERN_Y_M_D
 import com.gx.utils.date.toDateStr
-import com.gx.utils.log.LogUtil
+
 
 
 class SectionDecoration(var context: Context, var callback: DecorationCallback) :
@@ -61,7 +61,7 @@ class SectionDecoration(var context: Context, var callback: DecorationCallback) 
             val position: Int = parent.getChildAdapterPosition(view)
             val taskInfo: Task = callback.getGroupId(position)
             val taskCreateDate = taskInfo.taskCreateTime.toDateStr(PATTERN_Y_M_D)
-            LogUtil.d(TAG, "onDraw task time$taskCreateDate")
+//            LogUtil.d(TAG, "onDraw task time$taskCreateDate")
             val textLine = taskCreateDate;
 //            val textLine = if (taskInfo.taskStatus == 0) {
 //                "未完成"
@@ -69,7 +69,7 @@ class SectionDecoration(var context: Context, var callback: DecorationCallback) 
 //                "已完成"
 //            }
             if (position == 0 || isFirstInGroup(position)) {
-                LogUtil.d("isFirstInGroup is true${taskCreateDate}" )
+//                LogUtil.d("isFirstInGroup is true${taskCreateDate}" )
                 val top = (view.top - topGap).toFloat()
 //                LogUtil.d("onDraw view left = ${view.left} , top = ${view.top}  , right = ${view.right}  , bottom = ${view.bottom}")
                 val bottom = view.top.toFloat()

@@ -7,7 +7,7 @@ import com.gx.base.base.BaseRecyclerViewAdapter
 import com.gx.module_task.R
 import com.gx.data.task.Plan
 import com.gx.module_task.databinding.ItemDialogTitleBinding
-import com.gx.utils.log.LogUtil
+
 
 
 class RvTaskNameAdapter(mList: MutableList<Plan>?) :
@@ -18,7 +18,7 @@ class RvTaskNameAdapter(mList: MutableList<Plan>?) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val taskListInfo = mList!![position]
-        LogUtil.d("taskListInfo${taskListInfo}")
+//        LogUtil.d("taskListInfo${taskListInfo}")
         dataBinding!!.tvDialogTitle.text = taskListInfo.title
     }
 

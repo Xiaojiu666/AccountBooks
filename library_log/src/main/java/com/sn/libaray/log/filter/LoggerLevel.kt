@@ -1,40 +1,40 @@
 package com.sn.libaray.log.filter
 
-import com.sn.libaray.log.FilterMapping
-import java.util.*
+import java.util.logging.Level.OFF
 
 enum class LoggerLevel(var intLevel: Int) {
+
 
     /**
      * No events will be logged.
      */
-    VERBOSE(100),
+    VERBOSE(0),
 
     /**
      * A severe error that will prevent the application from continuing.
      */
-    DEBUG(200),
+    DEBUG(1),
 
     /**
      * An error in the application, possibly recoverable.
      */
-    INFO(300),
+    INFO(2),
 
     /**
      * An event that might possible lead to an error.
      */
-    WARN(400),
+    WARN(3),
 
     /**
      * An event for informational purposes.
      */
-    ERROR(500),
+    ERROR(4),
 
 
     /**
      * All events should be logged.
      */
-    ALL(0);
+    ALL(-1);
 
 //    private val LEVELSET: EnumSet<LoggerLevel> = EnumSet.allOf(LoggerLevel::class.java)
 

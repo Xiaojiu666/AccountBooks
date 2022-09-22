@@ -1,36 +1,27 @@
 package com.sn.libaray.log.filter
 
-open class AbstractFilter(match: FilterResult, misMatch: FilterResult) : LogFilter {
+open class AbstractFilter(
+   private var match: FilterResult = FilterResult.NEUTRAL,
+   private var misMatch: FilterResult = FilterResult.DENY
+) : LogFilter {
 
-
-    private var onMatch: FilterResult = FilterResult.NEUTRAL
-
-    private var onMismatch: FilterResult = FilterResult.DENY
-
-    init {
-        onMatch = match
-        onMismatch = misMatch
-
-    }
+    var destLevel: LoggerLevel = LoggerLevel.ALL
 
     override fun getOnMatch(): FilterResult {
-        return onMatch
+        return match
     }
 
     override fun getOnMismatch(): FilterResult {
-        return onMismatch
+        return misMatch
     }
 
-    override fun filter(level: LoggerLevel?, p0: Any?): FilterResult? {
-        return onMismatch
-    }
-
-    override fun filter(level: LoggerLevel?): FilterResult? {
-        return onMismatch
-    }
 
     override fun filter(): FilterResult? {
         return FilterResult.NEUTRAL
+    }
+
+    override fun setLevel(loggerLevel: LoggerLevel) {
+        destLevel = loggerLevel
     }
 
 

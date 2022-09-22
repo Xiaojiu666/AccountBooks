@@ -22,8 +22,8 @@ MAGIC_END = 0x00
 
 lastseq = 0
 
-PRIV_KEY = "eef455f9b7033b6e553649a53c189e4937d39a82348f7fa3f9bbbf0250da5d18"
-PUB_KEY = "f0403e60684d3fd58cb16b30cc7226a6bf6d91aefd1d9ea100078a3f1eb2beac81148f5289db1a0433b638fe855ac4b13652dfd6d9e605e34bd40e45b6ecec65"
+PRIV_KEY = ""
+PUB_KEY = ""
 
 def tea_decipher(v, k):
     op = 0xffffffffL

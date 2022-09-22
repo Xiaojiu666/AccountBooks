@@ -10,7 +10,7 @@ import com.gx.module_task.R
 import com.gx.module_task.databinding.ItemTaskListBinding
 import com.gx.module_task.databinding.ItemTaskListCompleteBinding
 import com.gx.utils.date.toDateStr
-import com.gx.utils.log.LogUtil
+
 
 
 class RvTaskListAdapter(mList: MutableList<Task>?) :

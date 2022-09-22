@@ -14,7 +14,7 @@ import com.gx.task.ui.activities.TaskListActivity
 import com.gx.task.ui.activities.TaskNewActivity
 import com.gx.task.ui.adapter.RvPlanListAdapter
 import com.gx.task.vm.TaskViewModel
-import com.gx.utils.log.LogUtil
+
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -69,7 +69,7 @@ class TaskHomeFragment : BaseVBFragment<FragmentTaskHomeBinding>() {
     override fun initView() {
         super.initView()
         viewModel.mPlans.observe(this) {
-            LogUtil.d(TAG, "observe mTask ${it.size}")
+//            LogUtil.d(TAG, "observe mTask ${it.size}")
             rvTaskListAdapter.list = it
         }
         val onItemClickListener: (view: View, position: Int) -> Unit = { view, position ->
@@ -106,7 +106,7 @@ class TaskHomeFragment : BaseVBFragment<FragmentTaskHomeBinding>() {
     }
 
     private fun startTaskListActivity(plan: Plan) {
-        LogUtil.d("startTaskListActivity plan {$plan}")
+//        LogUtil.d("startTaskListActivity plan {$plan}")
         val intent = Intent(activity, TaskListActivity::class.java)
         intent.putExtra("plan", plan)
         startActivity(intent)

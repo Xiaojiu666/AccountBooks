@@ -23,7 +23,7 @@ import com.gx.module_task.R
 import com.gx.module_task.databinding.ActivityTaskNewBinding
 import com.gx.task.ui.adapter.RvTaskNameAdapter
 import com.gx.task.vm.TaskViewModel
-import com.gx.utils.log.LogUtil
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -49,7 +49,7 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
 
         @SuppressLint("SetTextI18n")
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            LogUtil.d(TAG, "start $start , before $before , count $count")
+//            LogUtil.d(TAG, "start $start , before $before , count $count")
             mBinding.textDescSize.text = "${start + count}/140"
         }
 
@@ -60,7 +60,7 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
     private fun initClickListener() {
         rvTaskNameAdapter.setOnItemClickListener { view, posiion ->
             val task = viewModel.mPlans.value!![posiion]
-            LogUtil.d(TAG, "task : $task")
+//            LogUtil.d(TAG, "task : $task")
             viewModel.currentSelectorPlan = task
             mBinding.tvChoicePlan.setTextColor(getColor(R.color.base_color_black))
             mBinding.tvChoicePlan.text = task.title
@@ -70,7 +70,7 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
 
     private fun initPlanDialog() {
         viewModel.mPlans.observe(this) {
-            LogUtil.e("name : $it   , name :Size $it!!.size")
+//            LogUtil.e("name : $it   , name :Size $it!!.size")
             if (it!!.size <= 0) {
                 createPlanDialog(getString(R.string.plan_tips))
             } else {
@@ -84,7 +84,7 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
     }
 
     var createPlanListener = DialogInterface.OnClickListener { dialog, _ ->
-        LogUtil.d("$dialog")
+//        LogUtil.d("$dialog")
         dialog.cancel()
         createPlanDialog(null)
     }
@@ -96,7 +96,7 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
     }
 
     private fun createPlanDialog(message: String?) {
-        LogUtil.d("createPlanDialog")
+//        LogUtil.d("createPlanDialog")
         val dialogView =
             View.inflate(baseContext, R.layout.dialog_custom_editext, null)
         editText = dialogView.findViewById<EditText>(R.id.plan_et_title)
@@ -106,7 +106,7 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
             .setPositiveButton(R.string.base_confirm, savePlanListener)
             .setNegativeButton(R.string.base_cancel, cancelListener)
         if (!TextUtils.isEmpty(message)) {
-            LogUtil.d("message $message ")
+//            LogUtil.d("message $message ")
             negativeButton.setMessage(message)
         }
         negativeButton.show()
@@ -145,7 +145,7 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
             Toast.makeText(this, "请输入计划名称", Toast.LENGTH_SHORT).show()
             return
         }
-        LogUtil.e(TAG, " savePlan ${planName}")
+//        LogUtil.e(TAG, " savePlan ${planName}")
         val task = Plan(planName)
         viewModel.insertPlan(task)
     }

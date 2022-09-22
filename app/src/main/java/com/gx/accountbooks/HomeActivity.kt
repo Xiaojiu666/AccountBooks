@@ -14,12 +14,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.gx.base.base.BaseAppCompatActivity
-import com.gx.utils.log.LogUtil
+
+import com.sn.libaray.log.LogUtils
 import com.sn.libaray.log.logger
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.*
-import org.json.JSONArray
-import org.json.JSONObject
 import java.io.IOException
 
 
@@ -33,13 +32,50 @@ class HomeActivity : BaseAppCompatActivity() {
         var request = Request.Builder().url(url).build()
         okHttpClient.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call?, response: Response?) {
-                LogUtil.d(TAG, response!!.body()!!.string().toString())
+               // LogUtil.d(TAG, response!!.body()!!.string().toString())
             }
 
             override fun onFailure(call: Call?, e: IOException?) {
-                LogUtil.d(TAG, e!!.message)
+               // LogUtil.d(TAG, e!!.message)
             }
         })
+        testKotlin()
+    }
+
+    fun testKotlin() {
+        var test = "aaa"
+        println(T::x) // property x
+        LogUtils.v(T::x)
+        LogUtils.v(test)
+        LogUtils.v(xd)
+//        LogUtil.d(xd)
+        val kClass = T::class
+//        println(kClass.java) // 打印：class com.gx.accountbooks.HomeActivity$T
+//        println(T(10).javaClass.) //class com.gx.accountbooks.HomeActivity$T
+//        println(D().javaClass) //class com.gx.accountbooks.HomeActivity$T
+//        println(T(10).javaClass.kotlin) //class com.gx.accountbooks.HomeActivity$T (Kotlin reflection is not available)
+//        println(String::class.java) // class java.lang.String
+//        val message = test.javaClass
+//        println(message) // class java.lang.String
+//        val kProperty0 = test::javaClass
+//        println(kProperty0.get()) // class java.lang.String
+//        println(String::class.java) // class java.lang.String
+//        println(String.javaClass) //class kotlin.jvm.internal.StringCompanionObject
+//        println(Double::class.java) //class kotlin.jvm.internal.StringCompanionObject
+
+    }
+
+    class T(val x: Int)
+
+
+    /**
+     * 另外一个类
+     */
+    class Test {
+        fun test(): Boolean {
+            print("测试：：")
+            return false
+        }
     }
 
 
@@ -84,15 +120,20 @@ class HomeActivity : BaseAppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        LogUtil.d(TAG, "onOptionsItemSelected ${item.itemId}")
+//        LogUtil.d(TAG, "onOptionsItemSelected ${item.itemId}")
 
         when (item.itemId) {
             R.id.action_chart -> {
-                logger.debug(TAG)
-                logger.verbose(TAG)
-                logger.warn(TAG)
-                logger.info(TAG)
-                logger.error(formatDataFromJson(xd)!!)
+                logger.debug(String::class.java.toString())
+//                logger.debug(T::x.Get)
+                logger.debug(String.javaClass.toString())
+//                LogUtils.verbose("AAAAAAA")
+//                logger.debug(TAG)
+//                logger.verbose(TAG)
+//                XLogService().verbose(TAG)
+//                logger.warn(TAG)
+//                logger.info(TAG)
+//                logger.error(JsonLoggerLayout().formatDataFromJson(xd)!!)
 //                var startTime = System.currentTimeMillis()
 //                for (name in 0..10000) {
 //                    logger.debug(TAG + "onOptionsItemSelected name $name")

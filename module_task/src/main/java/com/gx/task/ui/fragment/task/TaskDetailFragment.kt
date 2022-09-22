@@ -7,7 +7,7 @@ import com.gx.accountbooks.base.BaseFragment
 import com.gx.module_task.databinding.FragmentTaskDetailBinding
 import com.gx.task.TaskApplication
 import com.gx.task.vm.TaskDetailViewModel
-import com.gx.utils.log.LogUtil
+
 import javax.inject.Inject
 
  class TaskDetailFragment : BaseFragment() {
@@ -21,9 +21,9 @@ import javax.inject.Inject
     override fun initView() {
         val appContainer = (activity?.application as TaskApplication).appContainer
 //        taskViewModel = appContainer.taskDetailViewModel.create()
-        LogUtil.e(TAG, "TaskDetail ")
+//        LogUtil.e(TAG, "TaskDetail ")
         taskViewModel!!.taskDetail.observe(this, Observer {
-            LogUtil.e(TAG, "TaskDetail ${it.toString()}")
+//            LogUtil.e(TAG, "TaskDetail ${it.toString()}")
         })
         inflate?.textView2?.setOnClickListener {
             taskViewModel!!.upDataTaskDetailInfo()

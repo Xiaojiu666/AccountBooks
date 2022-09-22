@@ -21,7 +21,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.gx.accountbooks.R;
-import com.tencent.mars.xlog.Log;
 
 import org.w3c.dom.Text;
 

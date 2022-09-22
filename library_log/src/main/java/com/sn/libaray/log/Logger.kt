@@ -4,7 +4,7 @@ import android.util.Log
 import com.sn.libaray.log.filter.FilterResult
 import com.sn.libaray.log.filter.LogFilter
 import com.sn.libaray.log.filter.LoggerLevel
-import com.sn.libaray.log.filter.TimeFilter
+import com.sn.libaray.log.service.LoggerService
 import java.lang.reflect.Method
 import java.lang.reflect.Proxy
 
@@ -25,13 +25,13 @@ class Logger() {
             return Proxy.newProxyInstance(
                 loggerService.classLoader, arrayOf<Class<*>>(loggerService)
             ) { proxy, method, args ->
-                val analysisAnnotation = analysisAnnotation(method)
-                if (loggerFilter!!.filter(analysisAnnotation) == FilterResult.NEUTRAL) {
-                    args.forEach {
-                        
-                    }
-                    method.invoke(loggerServiceImpl, *args)
-                }
+//                val analysisAnnotation = analysisAnnotation(method)
+//                if (loggerFilter!!.filter(analysisAnnotation) == FilterResult.NEUTRAL) {
+//                    args.forEach {
+//                        Log.d(TAG, it.javaClass.name)
+//                    }
+//                    method.invoke(loggerServiceImpl, *args)
+//                }
             } as LoggerService
         }
 
@@ -46,6 +46,5 @@ class Logger() {
             }
             return LoggerLevel.ALL
         }
-
     }
 }

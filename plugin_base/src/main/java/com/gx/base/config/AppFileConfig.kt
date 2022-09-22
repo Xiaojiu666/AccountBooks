@@ -1,17 +1,16 @@
 package com.gx.base.config
 
+import android.content.Context
+import android.util.Log
+import com.gx.base.BuildConfig
+import com.gx.utils.apk.AppInfoUtil
+import java.io.File
+
 object AppFileConfig {
 
-    var FILE_ROOT_PATH = ""
+    var LOG_PATH = AppConfig.ROOT_PATH + File.separator + "Log"
 
-    var FILE_LOG = "$FILE_ROOT_PATH/log"
-    var FILE_XLOG = "$FILE_LOG/xlog"
-    var FILE_XLOG_CACHE ="$FILE_LOG/cache"
+    var LOG_XLOG_PATH = LOG_PATH + File.separator + "XLog"
+    var LOG_XLOG_CACHE_PATH = LOG_PATH + File.separator + "XLogCache"
 
-    fun initRootPath(name: String) {
-        FILE_ROOT_PATH = name
-        FILE_LOG = "$FILE_ROOT_PATH/log"
-        FILE_XLOG = "$FILE_LOG/xlog"
-        FILE_XLOG_CACHE ="$FILE_LOG/cache"
-    }
 }

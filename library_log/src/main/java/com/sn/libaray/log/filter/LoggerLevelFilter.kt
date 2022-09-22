@@ -1,34 +1,31 @@
 package com.sn.libaray.log.filter
 
-import java.time.LocalTime
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
-
 class LoggerLevelFilter(
-    var level: LoggerLevel,
-    var match: FilterResult,
-    var misMatch: FilterResult,
+    var loggerLevel: LoggerLevel?,
+    match: FilterResult,
+    misMatch: FilterResult,
 ) : AbstractFilter(match, misMatch) {
 
-    override fun filter(methodLevel: LoggerLevel?): FilterResult? {
-        if (methodLevel!!.intLevel >= level!!.intLevel) {
+    fun filter(methodLevel: LoggerLevel?): FilterResult? {
+        if (methodLevel!!.intLevel >= loggerLevel!!.intLevel) {
             return FilterResult.NEUTRAL
         }
-        return super.filter(level)
+        return FilterResult.DENY
     }
 
+    override fun filter(): FilterResult? {
+        return filter(destLevel)
+    }
 
     companion object {
 
         fun createFilter(
             level: LoggerLevel?,
-            match: FilterResult?,
-            mismatch: FilterResult?
+            match: FilterResult = FilterResult.NEUTRAL,
+            mismatch: FilterResult = FilterResult.DENY
         ): LoggerLevelFilter {
-            val onMatch: FilterResult = match ?: FilterResult.NEUTRAL
-            val onMismatch: FilterResult = mismatch ?: FilterResult.DENY
             val onLevel: LoggerLevel = level ?: LoggerLevel.ALL
-            return LoggerLevelFilter(onLevel, onMatch, onMismatch)
+            return LoggerLevelFilter(onLevel, match, mismatch)
         }
     }
 

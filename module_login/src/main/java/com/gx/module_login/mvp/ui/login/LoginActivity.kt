@@ -20,7 +20,6 @@ import com.gx.module_login.R
 import com.gx.utils.email.EMailSenderConfig
 import com.gx.utils.email.EMailSenderMessage
 import com.gx.utils.email.EmailManager
-import com.gx.utils.log.LogUtil
 
 
 @Route(path = AppConfig.ACTIVITY_LOGIN)
@@ -92,7 +91,7 @@ class LoginActivity : AppCompatActivity() {
             eMailSenderMessage.attachFileNames = files
             eMailSenderConfig.eMailSenderMessage = eMailSenderMessage
             EmailManager.sendEmail(eMailSenderConfig)
-            LogUtil.e("EMailSenderConfig","EMailSenderConfig");
+//            LogUtils.vers("EMailSenderConfig","EMailSenderConfig");
         }).start()
         password.apply {
             afterTextChanged {

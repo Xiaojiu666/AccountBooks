@@ -4,7 +4,6 @@ import androidx.lifecycle.*
 import com.gx.data.task.Task
 import com.gx.data.task.Plan
 import com.gx.task.repository.TaskRepository
-import com.gx.utils.log.LogUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -32,7 +31,7 @@ class TaskViewModel @Inject constructor(
 
     override fun onCleared() {
         super.onCleared()
-        LogUtil.e("TaskViewModel", "onCleared")
+//        LogUtil.e("TaskViewModel", "onCleared")
     }
 
 
@@ -59,18 +58,18 @@ class TaskViewModel @Inject constructor(
 
 
     fun upDateTaskList(taskList: MutableList<Task>) {
-        LogUtil.d(TAG, "upDateTaskList ${taskList.toString()}")
-        LogUtil.d(TAG, "upDateTaskList ${taskRepository.toString()}")
-        LogUtil.d(TAG, "upDateTaskList ${viewModelScope.toString()}")
+//        LogUtil.d(TAG, "upDateTaskList ${taskList.toString()}")
+//        LogUtil.d(TAG, "upDateTaskList ${taskRepository.toString()}")
+//        LogUtil.d(TAG, "upDateTaskList ${viewModelScope.toString()}")
         GlobalScope.launch(Dispatchers.IO) {
             taskRepository.upgradeTasks(taskList)
         }
     }
 
     fun upDateTask(task: Task) {
-        LogUtil.d(TAG, "upgradeTask ${task.toString()}")
-        LogUtil.d(TAG, "upgradeTask ${taskRepository.toString()}")
-        LogUtil.d(TAG, "upgradeTask ${viewModelScope.toString()}")
+//        LogUtil.d(TAG, "upgradeTask ${task.toString()}")
+//        LogUtil.d(TAG, "upgradeTask ${taskRepository.toString()}")
+//        LogUtil.d(TAG, "upgradeTask ${viewModelScope.toString()}")
         GlobalScope.launch(Dispatchers.IO) {
             taskRepository.upgradeTask(task)
         }

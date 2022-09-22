@@ -6,11 +6,9 @@ interface LogFilter {
 
     fun getOnMismatch(): FilterResult
 
-    fun filter(level: LoggerLevel?, p0: Any?): FilterResult?
-
-    fun filter(level: LoggerLevel?): FilterResult?
-
     fun filter(): FilterResult?
+
+    fun setLevel(loggerLevel: LoggerLevel)
 
 
 }

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.gx.ui.dialog.LoadingDialog
-import com.gx.utils.log.LogUtil
 import javax.inject.Inject
 
 /**

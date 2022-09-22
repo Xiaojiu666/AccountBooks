@@ -8,7 +8,7 @@ import com.gx.accountbooks.HomeViewModel
 import com.gx.accountbooks.R
 import com.gx.accountbooks.databinding.FragmentHomeBinding
 import com.gx.base.base.vb.BaseVBFragment
-import com.gx.utils.log.LogUtil
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -53,7 +53,7 @@ open class HomeFragment : BaseVBFragment<FragmentHomeBinding>() {
     override fun FragmentHomeBinding.initBinding() {
         textView.setStyle()
         textView.myTextSize = 30f
-        LogUtil.d("homeViewModel ${textView.myTextSize}")
+//        LogUtil.d("homeViewModel ${textView.myTextSize}")
         homeViewModel.currentTimeTransformed.observe(this@HomeFragment) {
             textView.text = it
         }

@@ -2,7 +2,7 @@ package com.gx.accountbooks
 
 import androidx.lifecycle.*
 import com.gx.task.repository.TaskRepository
-import com.gx.utils.log.LogUtil
+
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import java.util.*

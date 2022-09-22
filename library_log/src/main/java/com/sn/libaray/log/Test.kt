@@ -1,7 +1,7 @@
 package com.sn.libaray.log
 
 import android.util.Log
-import com.sn.libaray.log.LoggerService
+import com.sn.libaray.log.service.LoggerService
 import java.lang.reflect.Proxy
 
 class Test(private val loggerService: LoggerService) {

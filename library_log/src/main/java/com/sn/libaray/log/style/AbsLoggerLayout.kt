@@ -1,8 +1,10 @@
 package com.sn.libaray.log.style
 
-open class AbsLoggerLayout : LoggerLayout {
+import com.sn.libaray.log.layout.LogLayout
 
-    override fun format(message: CharSequence): CharSequence {
-        return message
+open class AbsLoggerLayout : LogLayout {
+
+    override fun format(message: Any): String {
+        return message.toString()
     }
 }

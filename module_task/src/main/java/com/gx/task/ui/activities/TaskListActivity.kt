@@ -12,7 +12,7 @@ import com.gx.task.test.TimeInterfaces
 import com.gx.task.ui.view.SectionDecoration
 import com.gx.task.ui.adapter.RvTaskListAdapter
 import com.gx.task.vm.TaskViewModel
-import com.gx.utils.log.LogUtil
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -53,13 +53,13 @@ class TaskListActivity : BaseVBActivity<ActivityTaskListBinding>() {
 
     override fun initData() {
         plan = intent.getParcelableExtra("plan")!!
-        LogUtil.d("plan  $plan")
+//        LogUtil.d("plan  $plan")
         with(plan) {
             viewModel.getTaskList4PlanId(planId)
             mBinding.toolbar.title = title
         }
         viewModel.allTask.observe(this) {
-            LogUtil.e(TAG, "mTasks : $it")
+//            LogUtil.e(TAG, "mTasks : $it")
             rvTaskListAdapter.list = it
         }
     }

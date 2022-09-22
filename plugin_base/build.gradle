@@ -74,6 +74,7 @@ dependencies {
     api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
 
     implementation project(path: ':plugin_common')
+    implementation project(path: ':library_log')
 
     /* 图表/报表库*/
     api library.MPchart

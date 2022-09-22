@@ -4,7 +4,7 @@ import com.gx.data.task.Task
 import com.gx.data.task.Plan
 import com.gx.room.task.PlanDao
 import com.gx.room.task.TaskDao
-import com.gx.utils.log.LogUtil
+
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -36,13 +36,13 @@ class TaskRepository @Inject constructor(
 
 
     fun upgradeTasks(taskList: MutableList<Task>) {
-        LogUtil.d(TAG, "upgradeTasks ${taskList.toString()}")
+//        LogUtil.d(TAG, "upgradeTasks ${taskList.toString()}")
         localDataSource.upgradeTasks(taskList)
     }
 
 
     suspend fun upgradeTask(task: Task) {
-        LogUtil.d(TAG, "upgradeTask ${task.toString()}")
+//        LogUtil.d(TAG, "upgradeTask ${task.toString()}")
         localDataSource.upgradeTask(task)
     }
 

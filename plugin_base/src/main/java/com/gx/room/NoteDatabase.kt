@@ -11,7 +11,7 @@ import com.gx.room.RoomConfig.TASK_DB_NAME
 import com.gx.room.RoomConfig.TASK_DB_VERSION
 import com.gx.room.task.PlanDao
 import com.gx.room.task.TaskDao
-import com.gx.utils.log.LogUtil
+import com.sn.libaray.log.LogUtils
 
 @Database(entities = [Plan::class, Task::class], version = TASK_DB_VERSION)
 abstract class NoteDatabase : RoomDatabase() {
@@ -44,7 +44,7 @@ abstract class NoteDatabase : RoomDatabase() {
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
-                        LogUtil.e(TAG, "onCreate ")
+                        LogUtils.v( "onCreate ")
                     }
                 })
 //                .fallbackToDestructiveMigration()

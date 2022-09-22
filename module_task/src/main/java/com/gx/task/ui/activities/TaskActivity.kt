@@ -6,8 +6,7 @@ import com.gx.module_task.R
 import com.gx.task.di.TestRepository
 import com.gx.task.test.ProxyTest
 import com.gx.task.test.TimeInterfaces
-import com.gx.utils.log.LogUtil
-import com.tencent.mars.xlog.Log
+
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
@@ -31,7 +30,6 @@ class TaskActivity : BaseAppCompatActivity() {
 
     override fun initView() {
         val testFun = ProxyTest.create(TimeInterfaces::class.java).testFun(1000)
-        LogUtil.d(TAG, "initView , ${testFun}")
         val client = OkHttpClient.Builder()
             .proxy(Proxy.NO_PROXY)
             .writeTimeout(60, TimeUnit.SECONDS)

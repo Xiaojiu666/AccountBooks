@@ -36,7 +36,7 @@ public class FirstActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_activity_first);
-        AnnocationRouter.getSingleton().navigat("RouteName_ActivityTwo");
+//        AnnocationRouter.getSingleton().navigat("RouteName_ActivityTwo");
 
     }
 

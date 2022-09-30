@@ -57,7 +57,7 @@ class MyClass : AbstractProcessor() {
         }
 
         //generate Java File
-        generateJavaFile(nameMap)
+//        generateJavaFile(nameMap)
         return true
     }
 

@@ -67,19 +67,19 @@ open class AbsLogService : LoggerService {
         verbose(tag, String.format(message.toString(), *params))
     }
 
-    override fun debug(message: String) {
+    override fun debug(message: Any) {
         Log.d(TAG, "debug $message")
     }
 
-    override fun info(message: String) {
+    override fun info(message: Any) {
         Log.i(TAG, "info $message")
     }
 
-    override fun warn(message: String) {
+    override fun warn(message: Any) {
         Log.w(TAG, "warn $message")
     }
 
-    override fun error(message: String) {
+    override fun error(message: Any) {
         error(TAG, message)
     }
 

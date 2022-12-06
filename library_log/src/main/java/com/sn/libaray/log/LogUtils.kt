@@ -33,4 +33,8 @@ object LogUtils {
         logUtilConfig!!.logService?.error(tag, message)
     }
 
+    fun e(message: Any) {
+        logUtilConfig!!.logService?.error(message)
+    }
+
 }

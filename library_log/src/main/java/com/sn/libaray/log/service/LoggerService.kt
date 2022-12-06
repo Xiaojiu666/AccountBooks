@@ -16,13 +16,13 @@ interface LoggerService {
 
     fun verbose(tag: String, message: Any, vararg params: String)
 
-    fun debug(message: String)
+    fun debug(message: Any)
 
-    fun info(message: String)
+    fun info(message: Any)
 
-    fun warn(message: String)
+    fun warn(message: Any)
 
-    fun error(message: String)
+    fun error(message: Any)
 
     fun error(tag: String, message: Any)
 }

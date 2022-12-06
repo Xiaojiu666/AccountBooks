@@ -1,4 +1,4 @@
-package com.gx.data.task
+package com.gx.task.repository.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

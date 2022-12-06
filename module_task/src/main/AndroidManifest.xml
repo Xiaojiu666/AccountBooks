@@ -17,6 +17,7 @@
         <activity
             android:name="com.gx.task.ui.activities.TaskListActivity"
             android:windowSoftInputMode="adjustUnspecified" />
+        <activity android:name="com.gx.task.ui.activities.PlanNewActivity" />
 
     </application>
 </manifest>

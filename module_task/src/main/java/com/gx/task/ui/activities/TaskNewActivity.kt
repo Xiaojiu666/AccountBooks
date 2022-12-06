@@ -12,13 +12,12 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.gx.base.base.vb.BaseVBActivity
-import com.gx.data.task.Task
-import com.gx.data.task.Plan
+import com.gx.task.repository.data.Task
+import com.gx.task.repository.data.Plan
 import com.gx.module_task.R
 import com.gx.module_task.databinding.ActivityTaskNewBinding
 import com.gx.task.ui.adapter.RvTaskNameAdapter
@@ -34,13 +33,23 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
     private lateinit var editText: EditText
     private lateinit var negativeButton: AlertDialog
 
-    override fun ActivityTaskNewBinding.initBinding() {
+    override fun initData() {
+        viewModel.mPlanInfo = intent.getParcelableExtra("planInfo")!!
+    }
+
+    override fun initView() {
+        super.initView()
         initClickListener()
+    }
+
+
+    override fun ActivityTaskNewBinding.initBinding() {
         initActionBar(toolbar)
         tvChoicePlan.setOnClickListener {
             initPlanDialog()
         }
         taskEtDesc.addTextChangedListener(MyTextWatcher())
+
     }
 
     inner class MyTextWatcher : TextWatcher {
@@ -49,7 +58,6 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
 
         @SuppressLint("SetTextI18n")
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//            LogUtil.d(TAG, "start $start , before $before , count $count")
             mBinding.textDescSize.text = "${start + count}/140"
         }
 
@@ -118,9 +126,6 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
         return true
     }
 
-    override fun initView() {
-        super.initView()
-    }
 
     private fun createPlanListDialog(mutableList: MutableList<Plan>) {
         rvTaskNameAdapter.list = mutableList
@@ -145,7 +150,6 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
             Toast.makeText(this, "请输入计划名称", Toast.LENGTH_SHORT).show()
             return
         }
-//        LogUtil.e(TAG, " savePlan ${planName}")
         val task = Plan(planName)
         viewModel.insertPlan(task)
     }
@@ -153,15 +157,15 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
     private fun saveTask() {
         val currentSelectorPlan = viewModel.currentSelectorPlan
         val taskTitle = mBinding.taskEtTitle.text.toString()
-        if (currentSelectorPlan == null) {
-            Toast.makeText(this, "请选择关联计划", Toast.LENGTH_SHORT).show()
-            return
-        }
+//        if (currentSelectorPlan == null) {
+//            Toast.makeText(this, "请选择关联计划", Toast.LENGTH_SHORT).show()
+//            return
+//        }
         if (TextUtils.isEmpty(taskTitle)) {
             Toast.makeText(this, "请输入任务名称", Toast.LENGTH_SHORT).show()
             return
         }
-        val subTask = Task(currentSelectorPlan.planId)
+        val subTask = Task(viewModel.mPlanInfo.planId.toLong())
         with(subTask) {
             taskEndTime = System.currentTimeMillis()
             taskNotificationTime = System.currentTimeMillis()

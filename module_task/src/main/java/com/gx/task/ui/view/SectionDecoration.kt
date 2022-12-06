@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.text.TextPaint
-import com.gx.data.task.Task
+import com.gx.task.repository.data.Task
 import android.R
 import android.content.res.Resources
 import android.graphics.*

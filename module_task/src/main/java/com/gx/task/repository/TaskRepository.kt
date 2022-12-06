@@ -1,9 +1,9 @@
 package com.gx.task.repository
 
-import com.gx.data.task.Task
-import com.gx.data.task.Plan
-import com.gx.room.task.PlanDao
-import com.gx.room.task.TaskDao
+import com.gx.task.repository.data.Task
+import com.gx.task.repository.data.Plan
+import com.gx.task.database.PlanDao
+import com.gx.task.database.TaskDao
 
 import javax.inject.Inject
 import javax.inject.Singleton

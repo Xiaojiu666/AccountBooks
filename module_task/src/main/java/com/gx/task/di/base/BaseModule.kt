@@ -4,9 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import com.gx.module_task.R
-import dagger.Module
-import dagger.Provides
-import javax.inject.Singleton
 
 //@Module
 class BaseModule constructor(var context: Context){

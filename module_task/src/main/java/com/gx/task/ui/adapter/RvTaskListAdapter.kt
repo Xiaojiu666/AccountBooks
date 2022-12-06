@@ -1,14 +1,12 @@
 package com.gx.task.ui.adapter
 
-import android.graphics.Paint
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gx.base.base.BaseRecyclerViewAdapter
-import com.gx.data.task.Task
+import com.gx.task.repository.data.Task
 import com.gx.module_task.R
 import com.gx.module_task.databinding.ItemTaskListBinding
-import com.gx.module_task.databinding.ItemTaskListCompleteBinding
 import com.gx.utils.date.toDateStr
 
 

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="taskList"
-            type="com.gx.data.task.Task" />
+            type="com.gx.task.repository.data.Task" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

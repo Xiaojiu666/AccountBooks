@@ -1,11 +1,11 @@
 package com.gx.task
 
 import android.content.Context
-import com.gx.task.repository.AppContainer
 import com.gx.base.application.BaseApplication
+import com.gx.task.repository.AppContainer
 import dagger.hilt.android.HiltAndroidApp
 
-//@HiltAndroidApp
+@HiltAndroidApp
 class TaskApplication : BaseApplication() {
 
     val appContainer = AppContainer()

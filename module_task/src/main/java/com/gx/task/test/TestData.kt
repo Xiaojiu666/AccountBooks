@@ -1,7 +1,7 @@
 package com.gx.task
 
-import com.gx.data.task.Plan
-import com.gx.data.task.Task
+import com.gx.task.repository.data.Plan
+import com.gx.task.repository.data.Task
 import java.util.ArrayList
 
 

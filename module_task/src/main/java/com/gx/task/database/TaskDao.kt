@@ -1,10 +1,10 @@
-package com.gx.room.task
+package com.gx.task.database
 
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Update
-import com.gx.data.task.Plan
-import com.gx.data.task.Task
+import com.gx.task.repository.data.Task
+import com.gx.room.task.BaseRoomDao
 import kotlinx.coroutines.flow.Flow
 
 @Dao

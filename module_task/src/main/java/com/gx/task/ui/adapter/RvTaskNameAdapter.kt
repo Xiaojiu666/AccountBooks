@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gx.base.base.BaseRecyclerViewAdapter
 import com.gx.module_task.R
-import com.gx.data.task.Plan
+import com.gx.task.repository.data.Plan
 import com.gx.module_task.databinding.ItemDialogTitleBinding
 
 

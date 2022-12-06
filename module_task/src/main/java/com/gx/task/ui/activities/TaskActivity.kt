@@ -4,16 +4,12 @@ import android.view.View
 import com.gx.base.base.BaseAppCompatActivity
 import com.gx.module_task.R
 import com.gx.task.di.TestRepository
-import com.gx.task.test.ProxyTest
-import com.gx.task.test.TimeInterfaces
 
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.http.*
 import java.net.Proxy
@@ -29,7 +25,7 @@ class TaskActivity : BaseAppCompatActivity() {
     }
 
     override fun initView() {
-        val testFun = ProxyTest.create(TimeInterfaces::class.java).testFun(1000)
+        val testFun = com.gx.task.test.ProxyTest.create(com.gx.task.test.TimeInterfaces::class.java).testFun(1000)
         val client = OkHttpClient.Builder()
             .proxy(Proxy.NO_PROXY)
             .writeTimeout(60, TimeUnit.SECONDS)

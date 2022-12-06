@@ -2,11 +2,10 @@ package com.gx.task.ui.adapter
 
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.gx.base.base.BaseRecyclerViewAdapter
 import com.gx.module_task.R
-import com.gx.data.task.Plan
+import com.gx.task.repository.data.Plan
 import com.gx.module_task.databinding.ItemPlanListBinding
 
 

@@ -1,6 +1,5 @@
 package com.gx.task.ui.fragment.task
 
-import android.Manifest
 import android.content.Intent
 import android.util.Log
 import android.view.View
@@ -8,7 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gx.base.base.vb.BaseVBFragment
-import com.gx.data.task.Plan
+import com.gx.task.repository.data.Plan
 import com.gx.module_task.databinding.FragmentTaskHomeBinding
 import com.gx.task.ui.activities.TaskListActivity
 import com.gx.task.ui.activities.TaskNewActivity
@@ -29,6 +28,7 @@ import kotlinx.coroutines.withContext
 class TaskHomeFragment : BaseVBFragment<FragmentTaskHomeBinding>() {
 
     private val viewModel: TaskViewModel by viewModels()
+
     private val rvTaskListAdapter = RvPlanListAdapter(null)
 
 
@@ -41,13 +41,7 @@ class TaskHomeFragment : BaseVBFragment<FragmentTaskHomeBinding>() {
             startNewTaskActivity()
         }
         taskTvToady.setOnClickListener {
-//            getPermission()
             getTime()
-//            val load = ServiceLoader.load(IActivity::class.java,javaClass.classLoader).toList()
-//            LogUtil.d(TAG, "load ${load.size}")
-//            load.forEach {
-//                it.jump2Activity(requireContext())
-//            }
         }
     }
 

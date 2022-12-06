@@ -4,11 +4,9 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gx.base.base.vb.BaseVBActivity
-import com.gx.data.task.Plan
-import com.gx.data.task.Task
+import com.gx.task.repository.data.Plan
+import com.gx.task.repository.data.Task
 import com.gx.module_task.databinding.ActivityTaskListBinding
-import com.gx.task.test.ProxyTest
-import com.gx.task.test.TimeInterfaces
 import com.gx.task.ui.view.SectionDecoration
 import com.gx.task.ui.adapter.RvTaskListAdapter
 import com.gx.task.vm.TaskViewModel

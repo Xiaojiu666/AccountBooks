@@ -5,7 +5,6 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.gx.accountbooks.base.BaseFragment
 import com.gx.module_task.databinding.FragmentTaskDetailBinding
-import com.gx.task.TaskApplication
 import com.gx.task.vm.TaskDetailViewModel
 
 import javax.inject.Inject
@@ -19,7 +18,7 @@ import javax.inject.Inject
     var taskViewModel: TaskDetailViewModel? = null
 
     override fun initView() {
-        val appContainer = (activity?.application as TaskApplication).appContainer
+        val appContainer = (activity?.application as com.gx.task.TaskApplication).appContainer
 //        taskViewModel = appContainer.taskDetailViewModel.create()
 //        LogUtil.e(TAG, "TaskDetail ")
         taskViewModel!!.taskDetail.observe(this, Observer {

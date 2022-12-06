@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 
 class StockLiveData : LiveData<Int>() {
 
-    private val stockManager = StockManager()
+    private val stockManager = com.gx.task.vm.StockManager()
 
-    private val listener = SimplePriceListener {
+    private val listener = com.gx.task.vm.SimplePriceListener {
         value = it
     }
 

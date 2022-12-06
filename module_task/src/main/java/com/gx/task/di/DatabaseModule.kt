@@ -1,9 +1,9 @@
 package com.gx.task.di
 
 import android.content.Context
-import com.gx.room.NoteDatabase
-import com.gx.room.task.PlanDao
-import com.gx.room.task.TaskDao
+import com.gx.task.database.PlanDao
+import com.gx.task.database.TaskDao
+import com.gx.task.database.TaskDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,16 +17,16 @@ class DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideTaskDatabase(@ApplicationContext context: Context):NoteDatabase{
-        return NoteDatabase.getInstance(context)!!
+    fun provideTaskDatabase(@ApplicationContext context: Context):TaskDatabase{
+        return TaskDatabase.getInstance(context)!!
     }
     @Provides
-    fun providePlanDao(taskDatabase: NoteDatabase): PlanDao {
+    fun providePlanDao(taskDatabase: TaskDatabase): PlanDao {
         return taskDatabase.planDao()!!
     }
 
     @Provides
-    fun provideSubTaskDao(taskDatabase: NoteDatabase): TaskDao {
+    fun provideSubTaskDao(taskDatabase: TaskDatabase): TaskDao {
         return taskDatabase.taskDao()!!
     }
 

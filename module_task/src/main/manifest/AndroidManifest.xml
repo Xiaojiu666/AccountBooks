@@ -7,20 +7,16 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name="com.gx.task.TaskApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_task"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name="com.gx.task.TaskApplication"
         android:theme="@style/Theme.Note">
 
         <activity android:name="com.gx.task.ui.activities.TaskActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name="com.gx.task.di.base.BaseActivity">
@@ -34,6 +30,22 @@
         <activity
             android:name="com.gx.task.ui.activities.TaskListActivity"
             android:windowSoftInputMode="adjustUnspecified" />
+
+        <activity
+            android:name="com.gx.task.ui.activities.PlanNewActivity"
+            android:exported="true">
+
+        </activity>
+
+        <activity
+            android:name="com.gx.task.ui.activities.TestActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

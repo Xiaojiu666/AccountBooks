@@ -3,12 +3,9 @@ package com.gx.task.ui.view.calendar
 import android.annotation.SuppressLint
 import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
-import android.text.TextUtils
 import com.sn.libaray.log.LogUtils
-import com.sn.libaray.log.TAG
 import java.text.ParseException
 import java.util.*
-import kotlin.math.max
 
 
 var TAG = "CalendarUtils"
@@ -53,6 +50,8 @@ fun getDays4YearMonth(
         val entity = DateDayEntity(cal.timeInMillis)
         val num = cal.get(Calendar.DATE)
         entity.date = getValue(year) + "-" + month + "-" + getValue(num)
+        entity.year = year
+        entity.month = month
         entity.weekNum = cal.get(Calendar.DAY_OF_WEEK)
         entity.day = getValue(num)
         entity.weekName = getWeekName(entity.weekNum)
@@ -66,6 +65,7 @@ fun getDays4YearMonth(
     val weekNum: Int = result[0].weekNum - 1
     for (j in 0 until weekNum) {
         val entity = DateDayEntity(cal.timeInMillis)
+        entity.isPlaceholder = true
         result.add(0, entity)
     }
     return result
@@ -95,6 +95,7 @@ fun getWeekName(weekNum: Int): String {
     return name
 }
 
+
 fun isToday(sdate: String?): Boolean {
     var b = false
     var time: Date? = null
@@ -123,6 +124,20 @@ var dateFormater = object : ThreadLocal<SimpleDateFormat>() {
     }
 }
 
+/**
+ * 获取阴历
+ * @param date
+ * @return
+ */
+//fun getLuna(date: String?): String? {
+//    val today = Calendar.getInstance()
+//    try {
+//        today.time = Lunar.chineseDateFormat.parse(date)
+//    } catch (e: ParseException) {
+//        e.printStackTrace()
+//    }
+//    return Lunar(today).toString()
+//}
 
 @SuppressLint("SimpleDateFormat")
 fun getTime(timeString: String?): String? {

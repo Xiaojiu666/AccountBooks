@@ -1,14 +1,14 @@
 package com.gx.task.ui.view.calendar
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.*
 import com.gx.module_task.R
+import com.gx.task.ui.view.calendar.adapter.MonthRvAdapter
+import com.gx.task.ui.view.calendar.adapter.WeekRvAdapter
 import com.sn.libaray.log.LogUtils
-import com.sn.libaray.log.TAG
 
 
 class CalendarView(context: Context, attributes: AttributeSet?) :
@@ -19,7 +19,6 @@ class CalendarView(context: Context, attributes: AttributeSet?) :
     lateinit var monthRvAdapter: MonthRvAdapter
     lateinit var currentMonthEntity: DateMonthEntity
     lateinit var recent3MonthData: List<DateMonthEntity>
-
 
     init {
         val calendarView = View.inflate(context, R.layout.view_calendar, this)

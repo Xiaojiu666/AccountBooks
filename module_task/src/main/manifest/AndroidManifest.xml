@@ -15,8 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Note">
 
-        <activity android:name="com.gx.task.ui.activities.TaskActivity">
+        <activity android:name="com.gx.task.ui.activities.TaskActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name="com.gx.task.di.base.BaseActivity">
@@ -40,11 +45,7 @@
         <activity
             android:name="com.gx.task.ui.activities.TestActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

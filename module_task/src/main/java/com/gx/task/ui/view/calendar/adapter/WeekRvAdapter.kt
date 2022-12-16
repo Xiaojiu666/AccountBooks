@@ -1,4 +1,4 @@
-package com.gx.task.ui.view.calendar
+package com.gx.task.ui.view.calendar.adapter
 
 import android.view.LayoutInflater
 import android.view.View

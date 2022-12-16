@@ -29,7 +29,6 @@ class TaskListActivity : BaseVBActivity<ActivityTaskListBinding>() {
             adapter = rvTaskListAdapter
         }
 
-
         val sectionDecoration =
             SectionDecoration(baseContext, object : SectionDecoration.DecorationCallback {
                 override fun getGroupId(position: Int): Task {

@@ -18,6 +18,8 @@ interface LoggerService {
 
     fun debug(message: Any)
 
+    fun debug(tag: String, message: Any)
+
     fun info(message: Any)
 
     fun warn(message: Any)

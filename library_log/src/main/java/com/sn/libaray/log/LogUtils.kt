@@ -37,4 +37,12 @@ object LogUtils {
         logUtilConfig!!.logService?.error(message)
     }
 
+    fun d(tag: String, message: Any) {
+        logUtilConfig!!.logService?.debug(tag, message)
+    }
+
+    fun d(message: Any) {
+        logUtilConfig!!.logService?.debug(message)
+    }
+
 }

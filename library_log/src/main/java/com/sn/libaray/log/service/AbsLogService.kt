@@ -52,12 +52,16 @@ open class AbsLogService : LoggerService {
         }
         if (consoleLogOpen) {
             when (loggerLevel) {
+                LoggerLevel.DEBUG ->{
+                    Log.v(tagLayout!!.format(tag), messageLayout!!.format(message))
+                }
                 LoggerLevel.VERBOSE -> {
                     Log.v(tagLayout!!.format(tag), messageLayout!!.format(message))
                 }
                 LoggerLevel.ERROR -> {
                     Log.e(tagLayout!!.format(tag), messageLayout!!.format(message))
                 }
+
             }
 
         }
@@ -69,6 +73,10 @@ open class AbsLogService : LoggerService {
 
     override fun debug(message: Any) {
         Log.d(TAG, "debug $message")
+    }
+
+    override fun debug(tag: String, message: Any) {
+        filterMsg(tag, message, LoggerLevel.DEBUG)
     }
 
     override fun info(message: Any) {

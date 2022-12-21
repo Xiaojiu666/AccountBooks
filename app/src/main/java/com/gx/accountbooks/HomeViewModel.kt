@@ -13,7 +13,6 @@ class HomeViewModel @Inject constructor(
     var homeR: HomeRepository
 ) : ViewModel() {
 
-    var name = "HomeVIewModel"
     var currentTime: LiveData<Long> = liveData {
         while (true) {
             emit(System.currentTimeMillis())
@@ -28,7 +27,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getData() {
+    fun getData(int: Int) {
 //        LogUtil.d("getData ${currentTimeTransformed.value}")
     }
 

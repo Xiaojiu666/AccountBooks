@@ -44,7 +44,7 @@ class TaskNewActivity : BaseVBActivity<ActivityTaskNewBinding>() {
 
 
     override fun ActivityTaskNewBinding.initBinding() {
-        initActionBar(toolbar)
+//        initActionBar(toolbar)
         tvChoicePlan.setOnClickListener {
             initPlanDialog()
         }

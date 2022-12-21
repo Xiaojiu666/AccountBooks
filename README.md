@@ -12,9 +12,8 @@ a normal AccountBooks
 ######
 
 
+### UI层
+-  [material](git@github.com:material-components/material-components-android.git)
+
 
 ##	参考资料
-
-- https://www.jianshu.com/p/d2b1689a23bf //DrawerLayout和NavigationView
-- https://www.jianshu.com/p/a67662e6eab4 //Android Toolbar详解
-- https://material.io/resources/icons/              //icon

@@ -15,6 +15,7 @@ import com.gx.task.ui.adapter.RvTaskListAdapter
 import com.gx.task.ui.adapter.RvTaskNameAdapter
 import com.gx.task.vm.TaskViewModel
 import com.sn.libaray.log.LogUtils
+import com.sn.libaray.log.TAG
 import dagger.hilt.android.AndroidEntryPoint
 import org.jetbrains.anko.startActivity
 import java.net.IDN
@@ -27,7 +28,7 @@ class PlanNewActivity : BaseVBActivity<ActivityPlanNewBinding>() {
     private val rvTaskListAdapter = RvTaskListAdapter(null)
 
     override fun ActivityPlanNewBinding.initBinding() {
-        initActionBar(toolbar)
+//        initActionBar(toolbar)
         ivPlanAddTask.setOnClickListener {
             if (TextUtils.isEmpty(etPlanTitle.text)) {
                 Toast.makeText(

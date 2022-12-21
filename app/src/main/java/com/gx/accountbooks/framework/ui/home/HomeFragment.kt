@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.SharedPreferences
 import android.widget.TextView
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.gx.accountbooks.HomeViewModel
 import com.gx.accountbooks.R
 import com.gx.accountbooks.databinding.FragmentHomeBinding
@@ -54,7 +55,7 @@ open class HomeFragment : BaseVBFragment<FragmentHomeBinding>() {
         textView.setStyle()
         textView.myTextSize = 30f
 //        LogUtil.d("homeViewModel ${textView.myTextSize}")
-        homeViewModel.currentTimeTransformed.observe(this@HomeFragment) {
+        homeViewModel.currentTimeTransformed.observe(viewLifecycleOwner){
             textView.text = it
         }
         textView.setOnClickListener {

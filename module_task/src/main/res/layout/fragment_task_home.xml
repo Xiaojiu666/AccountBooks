@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,9 +22,8 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/task_tv_toady"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="16dp"
@@ -33,11 +33,11 @@
                     android:focusable="true">
 
                     <TextView
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/classify_toady"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                         android:textSize="@dimen/base_title_one" />
 
                 </com.google.android.material.card.MaterialCardView>
@@ -45,7 +45,7 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="16dp"
@@ -55,11 +55,11 @@
                     android:focusable="true">
 
                     <TextView
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/classify_future_seven"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                         android:textSize="@dimen/base_title_one" />
 
                 </com.google.android.material.card.MaterialCardView>
@@ -73,7 +73,7 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="16dp"
@@ -83,11 +83,11 @@
                     android:focusable="true">
 
                     <TextView
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/classify_done"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                         android:textSize="@dimen/base_title_one" />
 
                 </com.google.android.material.card.MaterialCardView>
@@ -95,7 +95,7 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="16dp"
@@ -105,11 +105,11 @@
                     android:focusable="true">
 
                     <TextView
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/classify_delay"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                         android:textSize="@dimen/base_title_one" />
 
                 </com.google.android.material.card.MaterialCardView>
@@ -121,10 +121,11 @@
             android:id="@+id/task_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -143,10 +144,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             app:layout_anchorGravity="bottom|end"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_add_white" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="计划列表"
+            android:textSize="@dimen/text_size_title_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <TextView
+            android:id="@+id/plan_tv_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="新建计划"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/text_size_title_2"
+            app:layout_constraintBottom_toBottomOf="@+id/textView11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/plan_tv_create"
+            app:layout_constraintEnd_toStartOf="@+id/plan_tv_create"
+            app:layout_constraintTop_toTopOf="@+id/plan_tv_create"
+            app:srcCompat="@drawable/ic_add_attrs" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

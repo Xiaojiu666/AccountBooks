@@ -62,12 +62,12 @@ class SectionDecoration(var context: Context, var callback: DecorationCallback) 
             val taskInfo: Task = callback.getGroupId(position)
             val taskCreateDate = taskInfo.taskCreateTime.toDateStr(PATTERN_Y_M_D)
 //            LogUtil.d(TAG, "onDraw task time$taskCreateDate")
-            val textLine = taskCreateDate;
-//            val textLine = if (taskInfo.taskStatus == 0) {
-//                "未完成"
-//            } else {
-//                "已完成"
-//            }
+//            val textLine = taskCreateDate;
+            val textLine = if (taskInfo.taskStatus == 0) {
+                "未完成"
+            } else {
+                "已完成"
+            }
             if (position == 0 || isFirstInGroup(position)) {
 //                LogUtil.d("isFirstInGroup is true${taskCreateDate}" )
                 val top = (view.top - topGap).toFloat()
@@ -86,7 +86,8 @@ class SectionDecoration(var context: Context, var callback: DecorationCallback) 
         } else {
             val prevGroupId: Task = callback.getGroupId(pos - 1)
             val groupId: Task = callback.getGroupId(pos)
-            prevGroupId.taskCreateTime.toDateStr(PATTERN_Y_M_D) != groupId.taskCreateTime.toDateStr(PATTERN_Y_M_D)
+//            prevGroupId.taskCreateTime.toDateStr(PATTERN_Y_M_D) != groupId.taskCreateTime.toDateStr(PATTERN_Y_M_D)
+            prevGroupId.taskStatus !=  groupId.taskStatus
         }
     }
 

@@ -9,6 +9,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.gx.task.repository.data.Task
 import com.gx.room.RoomConfig.TASK_DB_NAME
 import com.gx.room.RoomConfig.TASK_DB_VERSION
+import com.gx.room.upgradeMigration4_5
 import com.gx.task.repository.data.Plan
 
 @Database(entities = [Plan::class, Task::class], version = TASK_DB_VERSION,exportSchema = false)
@@ -46,7 +47,7 @@ abstract class TaskDatabase : RoomDatabase() {
                     }
                 })
 //                .fallbackToDestructiveMigration()
-//                .addMigrations(upgradeMigration4_5())
+                .addMigrations(upgradeMigration4_5())
                 .build()
         }
     }

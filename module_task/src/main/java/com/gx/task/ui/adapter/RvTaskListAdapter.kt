@@ -8,7 +8,8 @@ import com.gx.task.repository.data.Task
 import com.gx.module_task.R
 import com.gx.module_task.databinding.ItemTaskListBinding
 import com.gx.utils.date.toDateStr
-
+import com.sn.libaray.log.LogUtils
+import com.sn.libaray.log.TAG
 
 
 class RvTaskListAdapter(mList: MutableList<Task>?) :
@@ -36,15 +37,18 @@ class RvTaskListAdapter(mList: MutableList<Task>?) :
 
     inner class TaskListViewHolder(private val binding: ItemTaskListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        init {
-            setOnItemClickListener { view, position ->
-
-            }
-        }
-
         fun bind(task: Task, position: Int) {
-            binding.taskList = task
+            LogUtils.d(TAG, "taskInfo $task")
+            binding.taskInfo = task
             binding.tvEndTime.text = task.taskCreateTime.toDateStr()
+            binding.checkBox.isChecked = task.taskStatus != 0
+            binding.checkBox.setOnClickListener {
+                binding.checkBox.isChecked = task.taskStatus != 0
+                onItemCheckStatusListener.onCheckItem(
+                    binding.root,
+                    position
+                )
+            }
         }
     }
 
@@ -71,7 +75,7 @@ class RvTaskListAdapter(mList: MutableList<Task>?) :
     }
 
     interface OnItemCheckStatusListener {
-        fun onCheckItem(view: View, status: Int, position: Int)
+        fun onCheckItem(view: View, position: Int)
     }
 
     override fun getItemId(position: Int): Long {

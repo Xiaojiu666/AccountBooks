@@ -27,53 +27,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical">-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:orientation="vertical">-->
 
-<!--            <LinearLayout-->
-<!--                android:id="@+id/task_root_complete_un"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
+        <!--            <LinearLayout-->
+        <!--                android:id="@+id/task_root_complete_un"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content">-->
 
-<!--                <TextView-->
-<!--                    android:layout_margin="5dp"-->
-<!--                    android:id="@+id/task_tv_complete_un"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="@string/complete_un" />-->
-<!--            </LinearLayout>-->
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/task_rv_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-<!--            <LinearLayout-->
-<!--                android:id="@+id/task_root_complete"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/complete"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_margin="5dp"-->
-<!--                    android:text="@string/complete" />-->
-<!--            </LinearLayout>-->
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/task_rv_list"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
+        <!--                <TextView-->
+        <!--                    android:layout_margin="5dp"-->
+        <!--                    android:id="@+id/task_tv_complete_un"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:text="@string/complete_un" />-->
+        <!--            </LinearLayout>-->
 
 
-<!--        </LinearLayout>-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/task_rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!--            <LinearLayout-->
+        <!--                android:id="@+id/task_root_complete"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content">-->
+
+        <!--                <TextView-->
+        <!--                    android:id="@+id/complete"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_margin="5dp"-->
+        <!--                    android:text="@string/complete" />-->
+        <!--            </LinearLayout>-->
+
+        <!--            <androidx.recyclerview.widget.RecyclerView-->
+        <!--                android:id="@+id/task_rv_list"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content" />-->
+
+
+        <!--        </LinearLayout>-->
 
 
     </androidx.core.widget.NestedScrollView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/task_fb_add"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_anchorGravity="bottom|end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add_white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

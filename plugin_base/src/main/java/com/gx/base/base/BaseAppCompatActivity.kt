@@ -12,18 +12,15 @@ import com.gx.ui.dialog.LoadingDialog
 import javax.inject.Inject
 
 /**
- * Created by GuoXu on 2020/10/13 19:26.
+ *  最上层基类Activity
  */
-abstract class BaseAppCompatActivity : AppCompatActivity()  {
-
-    val TAG: String = javaClass.name
-
-    @Inject
-    lateinit var loadingDialog: LoadingDialog
+abstract class BaseAppCompatActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //设置主题
         applyThemeOverlays(this)
+        //设置布局
         setContentView(getLayoutView())
         initView()
         initData()
@@ -33,10 +30,6 @@ abstract class BaseAppCompatActivity : AppCompatActivity()  {
 
     abstract fun initView()
 
-    open fun isHome(): Boolean {
-        return false
-    }
-
     // 通过View 绑定，主要为了适用DataBinding
     abstract fun getLayoutView(): View
 
@@ -44,20 +37,9 @@ abstract class BaseAppCompatActivity : AppCompatActivity()  {
         return LayoutInflater.from(this).inflate(resId, null)
     }
 
-    fun initActionBar(toolbar: Toolbar) {
-        setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayShowTitleEnabled(false)
-    }
-
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.home && !isHome()) {
-            finish()
-            return true
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-
+//    fun initActionBar(toolbar: Toolbar) {
+//        setSupportActionBar(toolbar)
+//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+//        supportActionBar!!.setDisplayShowTitleEnabled(false)
+//    }
 }

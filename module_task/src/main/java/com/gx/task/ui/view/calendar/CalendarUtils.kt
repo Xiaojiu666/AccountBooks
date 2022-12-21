@@ -22,10 +22,6 @@ fun getMont4Month(
 ): DateMonthEntity {
     val monthEntity = DateMonthEntity(year, month)
     monthEntity.dayEntityList = getDays4YearMonth(year, month)
-    LogUtils.d(
-        TAG,
-        "currentMonthEntity toDown year： ${monthEntity.year}  ,month：${monthEntity.month} , dayEntityLists：${monthEntity.dayEntityList!!.size}  , dayEntityList：${monthEntity.dayEntityList} "
-    )
     return monthEntity
 }
 

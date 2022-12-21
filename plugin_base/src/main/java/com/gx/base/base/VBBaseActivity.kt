@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 
-abstract class VBBaseActivity<VB : ViewDataBinding> : AppCompatActivity(), BaseBinding<VB> {
+private abstract class VBBaseActivity<VB : ViewDataBinding> : AppCompatActivity(), BaseBinding<VB> {
 
-    internal val mBinding: VB by lazy(mode = LazyThreadSafetyMode.NONE) {
+    private val mBinding: VB by lazy(mode = LazyThreadSafetyMode.NONE) {
         getViewBinding(layoutInflater)
     }
 

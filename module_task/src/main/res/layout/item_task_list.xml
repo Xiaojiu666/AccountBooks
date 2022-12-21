@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="taskList"
+            name="taskInfo"
             type="com.gx.task.repository.data.Task" />
     </data>
 
@@ -33,10 +33,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="3dp"
-                android:text="@{taskList.taskName}"
+                android:text="@{taskInfo.taskName}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 android:textSize="@dimen/base_title_one"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/checkBox"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,9 +49,17 @@
                 android:layout_marginBottom="2dp"
                 android:textSize="@dimen/base_title_three"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/checkBox"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/task_tv_name" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

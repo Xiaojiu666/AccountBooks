@@ -10,5 +10,4 @@ include ':module_account_book'
 include ':module_diary'
 include ':app'
 include ':module_about_us'
-
 include ':library_log'

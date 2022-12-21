@@ -4,25 +4,29 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gx.base.base.vb.BaseVBActivity
+import com.gx.module_task.databinding.ActivityTaskListBinding
 import com.gx.task.repository.data.Plan
 import com.gx.task.repository.data.Task
-import com.gx.module_task.databinding.ActivityTaskListBinding
-import com.gx.task.ui.view.SectionDecoration
 import com.gx.task.ui.adapter.RvTaskListAdapter
+import com.gx.task.ui.view.SectionDecoration
 import com.gx.task.vm.TaskViewModel
-
+import com.sn.libaray.log.LogUtils
+import com.sn.libaray.log.TAG
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class TaskListActivity : BaseVBActivity<ActivityTaskListBinding>() {
 
     private val viewModel: TaskViewModel by viewModels()
+
     private lateinit var plan: Plan
 
     private val rvTaskListAdapter = RvTaskListAdapter(null)
 
     override fun ActivityTaskListBinding.initBinding() {
-        initActionBar(toolbar)
+        synchronized(this@TaskListActivity){
+
+        }
         initListener()
         with(taskRvList) {
             layoutManager = LinearLayoutManager(context)
@@ -36,27 +40,43 @@ class TaskListActivity : BaseVBActivity<ActivityTaskListBinding>() {
                 }
             })
         taskRvList.addItemDecoration(sectionDecoration)
+
+        taskFbAdd.setOnClickListener {
+            val task = Task(plan.planId)
+            task.taskName = "跳绳"
+            viewModel.insertTask(task)
+        }
     }
 
     private fun initListener() {
         rvTaskListAdapter.setOnItemCheckStatusListener(object :
             RvTaskListAdapter.OnItemCheckStatusListener {
-            override fun onCheckItem(view: View, status: Int, position: Int) {
-                viewModel.upDateTask(rvTaskListAdapter.mList!![position])
+            override fun onCheckItem(view: View, position: Int) {
+                var selectorData = rvTaskListAdapter.mList!![position]
+                LogUtils.d(TAG, "mList before ${rvTaskListAdapter.mList.toString()}")
+                if (selectorData.taskStatus == 0) {
+                    selectorData.taskStatus = 1
+                } else {
+                    selectorData.taskStatus = 0
+                }
+                rvTaskListAdapter.mList!!.removeAt(position)
+                rvTaskListAdapter.mList!!.add(selectorData)
+                rvTaskListAdapter.notifyDataSetChanged()
+                LogUtils.d(TAG, "mList after${rvTaskListAdapter.mList.toString()}")
+//                viewModel.upDateTask()
             }
         })
     }
 
 
     override fun initData() {
-        plan = intent.getParcelableExtra("plan")!!
-//        LogUtil.d("plan  $plan")
+        plan = intent.getParcelableExtra("planInfo")!!
+        LogUtils.d(TAG, "plan  $plan")
         with(plan) {
             viewModel.getTaskList4PlanId(planId)
             mBinding.toolbar.title = title
         }
         viewModel.allTask.observe(this) {
-//            LogUtil.e(TAG, "mTasks : $it")
             rvTaskListAdapter.list = it
         }
     }

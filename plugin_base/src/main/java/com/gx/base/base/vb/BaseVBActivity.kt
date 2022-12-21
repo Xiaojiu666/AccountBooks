@@ -18,7 +18,8 @@ abstract class BaseVBActivity<VB : ViewBinding> : BaseAppCompatActivity() {
     override fun getLayoutView(): View {
         return mBinding.root
     }
-
+    //通过扩展函数，给ViewBinding扩展一个初始化的方法。
+    //在里面可以获取ViewBinding的所有属性，包括我们的Id
     abstract fun VB.initBinding()
 
     override fun initData() {

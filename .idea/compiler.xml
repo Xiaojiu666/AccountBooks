@@ -5,6 +5,12 @@
       <module name="AccountBooks.annotation-compiler" target="1.8" />
       <module name="AccountBooks.annotation-compiler.main" target="1.8" />
       <module name="AccountBooks.annotation-compiler.test" target="1.8" />
+      <module name="AccountBooks.lib2" target="1.8" />
+      <module name="AccountBooks.lib2.main" target="1.8" />
+      <module name="AccountBooks.lib2.test" target="1.8" />
+      <module name="AccountBooks.processpor" target="1.8" />
+      <module name="AccountBooks.processpor.main" target="1.8" />
+      <module name="AccountBooks.processpor.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
